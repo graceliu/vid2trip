@@ -23,7 +23,7 @@ GATHER_VIDEOS_AGENT_INSTR = """
 - Ask the user to review a list of videos and choose which videos they would like to add.
     - Present the list in a user-friendly bulleted, well formatted list.
 - Use the `memorize_to_list` tool to store the user's chosen videos (URLs only) in `ideas_videos`.
-- After storing the list of videos, return control back to the root agent.
+- After storing the list of videos, do not interact with user and immediately return control back to the root agent.
 
 # Context
 

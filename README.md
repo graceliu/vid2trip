@@ -24,7 +24,7 @@ Vid2Trip is not just a transcriber; it is a **reasoning engine**. It employs a t
 ### Architecture
 The system utilizes a **Hierarchical Multi-Agent Architecture** orchestrated by a Root Agent. This ensures separation of concerns, where each agent utilizes specific tools and context to perform a distinct role.
 
-xc
+<img src="vid2trip-architecture.png" alt="Vid2Trip Architecture" width="800"/>
 
 **The Agentic Workflow:**
 
@@ -54,6 +54,8 @@ Acts as the state machine. It manages the global context (`destination`, `videos
 * **Tooling Strategy:**
     * **Robustness:** Implemented fallback logic for YouTube scraping (handling 429 errors and soft blocks).
     * **Type Safety:** Tools utilize Pydantic models to enforce strict schema compliance, preventing the LLM from generating malformed JSON.
+* **Automated Evaluation & Testing:** Implemented a robust regression testing suite using `pytest` and the ADK's `AgentEvaluator`. We defined "Golden Path" scenarios with custom semantic thresholds (via `test_config.json`) to ensure the agent reliably produces valid JSON itineraries without regression.
+<img src="vid2trip-pytest-evaluation.png" alt="Vid2Trip Pytest Evaluation" width="800"/>
 * **Deployment:** Fully deployed via `deploy.py` using a `uv` managed environment for reproducible builds.
 
 ---
@@ -146,7 +148,7 @@ Building Vid2Trip required overcoming several challenges:
     (trip-planner) $ # Virtualenv entered
     ```
 
-
+---
 
 ## 7. Running the Agent
 
@@ -165,7 +167,19 @@ Here is something to try:
 
 ---
 
-## 8. Deploying the Agent
+## 8. Running Evaluation
+
+To run the evaluation, install the extra dependencies and run `pytest`:
+
+```bash
+uv sync --dev
+pytest eval --disable-warnings
+```
+
+
+---
+
+## 9. Deploying the Agent
 
 To deploy the agent to Vertex AI Agent Engine, run the following commands:
 
@@ -192,6 +206,6 @@ uv run python deployment/deploy.py --delete --resource_id=<RESOURCE_ID>
 ```         
 ---
 
-## 9. Acknowledgements
+## 10. Acknowledgements
 
 This project is inspired by and based on code from https://github.com/google/adk-samples/tree/main/python/agents/travel-concierge.

@@ -1,0 +1,356 @@
+{
+  "eval_set_id": "happy_path",
+  "name": "happy_path",
+  "eval_cases": [
+    {
+      "eval_id": "tokyo_happy_path",
+      "conversation": [
+        {
+          "invocation_id": "e-dc475154-e410-4de0-a41d-09ce2e36b739",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Help me plan trip to Tokyo"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Here are some videos about things to do in Tokyo:\n\n*   **TOP 10 Things to do in TOKYO, Japan** (14:20) - https://www.youtube.com/watch?v=77lWbSfnF_g\n*   **How to Spend 5 Days in TOKYO - Japan Travel Itinerary** (14:15) - https://www.youtube.com/watch?v=0MQKLUkAUf8\n*   **101 Things to Do in TOKYO 🇯🇵 Hidden Spots Revealed** (1:20:07) - https://www.youtube.com/watch?v=ZjQj5GRwLSY\n*   **Tokyo Travel Guide - The Best Things to do in Tokyo** (29:15) - https://www.youtube.com/watch?v=I_qaccjrirc\n*   **40 Fun Things to Do in TOKYO JAPAN - The Ultimate Tokyo Travel Guide** (33:31) - https://www.youtube.com/watch?v=Ll-XGXPHWVk\n\nPlease let me know which of these videos you would like to add to your trip ideas! You can refer to them by their titles or numbers (e.g., \"the first one and the third one\").",
+                "thought_signature": "Cq0DAePx_17zen2V8oOjKpWgkjOc45psn75gsT1PsDGYLdFnwOc-4eHreIsYcnSZ8D0I-C-FibO29YJgAAdZBdcyxjKsjIZaLPUbXmVMd06ZWjnwCY04X0D2LXUsjXTiwmmnq2lFwI6-mD1Ubub5Tqle8f4SBqKHuVu5OXtTyl0lGzEL--eh8SWg09r7n5Orj_2e_qkfJChI_CiM6x-Zp_CorGDwAv2AIzBYlDodutpYpOE-wW50zsp7VVQUI5UG5rk5Dbc-b4XluhPiGguzQcDngn5tuPqXMyRaqKbNnG-A3b0XO6aoixeDAfhAHHKXSGfHXU2K6qum3_rDlGDrPnt794umG7DYRnaYZk8ql_195L3RIPQ3PUs1yyyUaLWHFJTCF819V3tnJBKiehnX6ASkzTbWymlNbxaHCaA-MLje2CnmJxS8DDj_7VNs8Fk3Gy252oHUeT5C_jfvMbr9g7gjuSzcCpYqmj6KcAnLt_MAt1ZtrNTxU6ehbdNucZHhQEhhjt0BAH8rVxfFiuBfsukS40fFbeuWclyC0Henx0LY3WUV2E5IFoRz1TN6rPHv"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "root_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-cad4d3fe-11a5-45a1-a469-306b694e1c26",
+                        "args": {
+                          "key": "destination",
+                          "value": "Tokyo"
+                        },
+                        "name": "memorize"
+                      },
+                      "thought_signature": "CuoDAePx_17R2HWlyDZOlsxheSRGeAQ4Xv2o-Ogfiy5oR6OaLzQDRQoUqC0btCWrLmH5OcZohjg65YXZWOQ_EeWKjwCySg2Zye1E2GX2kMjZPuRMVyV76FsNBnkkuN1XKTcRk2BmUjzbMvgy1m6BHVVjRfKLD5HQgnuuiDSg7UwHvSSXwi-RwHE8WAZA291LnfZdiR_SfCA5whBv90BV3cf5fsZpf_j-NJEoLd-R1iEMcs7hVTFX39pxnntyJuwqcuYodB7phclFD7lvqT7Qemk9Fko0C2lx6boztLpKWYUR5BTwvFhSDK-LzmjL2WacFNCgMtFhheozZ1KCmqRaLYuEba0zKvROCHV6z87tPWpdQ_DvOHWtz7s46Mt7OYu86FgodPtVHryKougySeAJ9TYPI4fSxzEjNSyHEuOv5OJivTN_eC5cqypgPdGbc8Ddepicnrxv7tQGZykQn2b2tHJUYamF9VJml1ywp0sZ2TpXsoIQkjXl-Ydm2hhkZQ8DE0MaeOrTBMfdgi70OVUOIuWjd7td1Iyvj56--U12BWEWyK24dNsl8FFODRBvyTJMbjqiBChWbeClT2ScFo_G7Dc-RwJ5FLtCK94uGrbTD6w9wHPDGUZPdlVlvHaTnvCoalMXYo3ehYg5BjDQaA=="
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "root_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-cad4d3fe-11a5-45a1-a469-306b694e1c26",
+                        "name": "memorize",
+                        "response": {
+                          "status": "Stored \"destination\": \"Tokyo\""
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              },
+              {
+                "author": "root_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-67b5587d-031f-413f-b9e1-629fde3514c6",
+                        "args": {
+                          "agent_name": "gather_videos_agent"
+                        },
+                        "name": "transfer_to_agent"
+                      },
+                      "thought_signature": "Ct0CAePx_15UhUUWGxrDOnpNWUSHMzJpFApmc6adztEDCemroz_ZbxtWidygsjAJKfYJMh6RHT08JSpyTabarqPWGnue5qfLlbuTAvdABu1NgVLOyb5vzqIcNuEoSOLtJ7KPp53ps_LBH0AB4bMHSThoGqY23SXCGTRQIh3rHpkt6e7vnnCleHOmU1xXQ6d-38Aeg7DAabr-ZgQ6EVZgbXEZXvWVudUDaAuW4_d9DNIGN3srCvn-jjZRnfjC4BqNqmudSh5u53KUdXBNXcrAMlM-Qrm5ScI_qhtxO6slyjqGecEErv93QJjdrjK04Q7ZWWOulPXfHeNb-OI3okpYIQyc78pWP7JR1K0toj54Hl0IaTjnQxY-nm15vEfgmuDh-Z5dpgjHkxQ0cxUMw_WFufspG8nWgMOb8n2jQWbWdA6Ob96FCj8UBBwkrDPvQUfnFFSAOH488iGfW7QV572kvg=="
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "root_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-67b5587d-031f-413f-b9e1-629fde3514c6",
+                        "name": "transfer_to_agent",
+                        "response": {
+                          "result": null
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              },
+              {
+                "author": "gather_videos_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-7461574d-c3b7-4226-a03b-093c572094f6",
+                        "args": {
+                          "query": "Things to do in Tokyo"
+                        },
+                        "name": "search_videos"
+                      },
+                      "thought_signature": "CtkCAePx_17gaF7bIyXyl_lA6BN3-qZNuGzd8Y4sNYJi6nuZ11SS8Qf1V-NI3gg0SE41CJPkKUVFDX_8viRkBs4McWCpyFqdi4vm9S75rdlcAraEr0WyoK5XS1GqZcW_NVpbyt2xoIIsMXUo5U0cRdAvBM_FlpIBDngGh_5mPPTyfu2BrwBYlx-oyn07qwEw40ZrVJqLbglfHpCK1q83i8ZqPeQfUwT94Io3uKi51WwP_Gut_i280-NPZJP8C0tLYRI-9zbbiDPe2fXnvm8TVBPhS5EL7UQ9MK6PmOuk1wUd15iUhb-r8-TQHs90Io6BieoMDHlvDZy6VcV5tyLMTRrajXVYjOLxv990q3piDrHUCeq3qCwLvP4RUEpPvi7V_V1aaOtS_ndAyqumrpNOoNm71QdpINKobUlbwzfLCMt1Lax05SXzt94cFruOtkM4ew922RKdHuGj8p8H"
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "gather_videos_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-7461574d-c3b7-4226-a03b-093c572094f6",
+                        "name": "search_videos",
+                        "response": {
+                          "result": "- **TOP 10 Things to do in TOKYO, Japan** (14:20) - Link: https://www.youtube.com/watch?v=77lWbSfnF_g\n- **How to Spend 5 Days in TOKYO - Japan Travel Itinerary** (14:15) - Link: https://www.youtube.com/watch?v=0MQKLUkAUf8\n- **101 Things to Do in TOKYO 🇯🇵 Hidden Spots Revealed** (1:20:07) - Link: https://www.youtube.com/watch?v=ZjQj5GRwLSY\n- **Tokyo Travel Guide - The Best Things to do in Tokyo** (29:15) - Link: https://www.youtube.com/watch?v=I_qaccjrirc\n- **40 Fun Things to Do in TOKYO JAPAN - The Ultimate Tokyo Travel Guide** (33:31) - Link: https://www.youtube.com/watch?v=Ll-XGXPHWVk"
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1764495619.683169
+        },
+        {
+          "invocation_id": "e-a8d23c2b-21cc-47c7-b714-844430b34813",
+          "user_content": {
+            "parts": [
+              {
+                "text": "videos 4 and 5"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Here's a draft itinerary for your trip to Tokyo, based on your trip ideas. I've tried to group attractions by neighborhood to make travel more efficient.\n\n**Day 1: Shibuya - The Iconic Crossroads and Youth Culture**\n\n*   **Morning:**\n    *   **Shibuya Crossing:** Experience the world's busiest pedestrian intersection.\n    *   **Hachiko Memorial Statue:** Visit the statue of Japan's most loyal dog.\n    *   **Mag's Park Rooftop / Shibuya Sky:** Get stunning panoramic views of Tokyo. Shibuya Sky is especially popular around sunset, so consider booking in advance if you want to visit then.\n*   **Lunch:**\n    *   **Standing Sushi:** Try incredibly fresh sushi for a quick and delicious meal.\n*   **Afternoon:**\n    *   **Miyashita Park:** Explore this urban space with shops (including GBL for Ghibli merch), dining, and a rooftop park.\n    *   **Shibuya Parco:** Visit the Nintendo Store and Pokemon Center for exclusive merchandise.\n    *   **Yoyogi Park & Meiji Shrine:** Find a peaceful retreat in this large park, especially beautiful during cherry blossom season, and visit the serene Shinto shrine within it.\n    *   **Harajuku & Takeshita Street:** Dive into Tokyo's youth culture with quirky fashion boutiques, street food, and themed animal cafes like Mipig Cafe.\n*   **Dinner:**\n    *   **Kaiten Sushi Ginza Onodera:** Enjoy high-end, Edomae-style conveyor belt sushi.\n    *   **Nonbei Yokochoo:** Explore this charming alleyway for dinner and drinks. Consider trying monjayaki and okonomiyaki at Tsukishima Monja Kuuya.\n*   **Evening:**\n    *   **Tsuru Tontan Udon noodles:** If you're still hungry, be prepared for a wait but enjoy delicious udon noodles.\n    *   **(Optional)** **Shibuya Kart:** A memorable (though expensive) go-karting experience through the city. Remember to bring an international driver's license.\n\n**Day 2: Shinjuku - Entertainment, Gardens, and Nightlife**\n\n*   **Morning:**\n    *   **Shinjuku Gyoen:** Explore this beautiful park, known for its cherry blossoms in late March/early April (book tickets in advance during peak season).\n    *   **Hanazono Shrine:** Admire the bright vermilion torii gates.\n    *   **(Optional)** **Cat Cafe:** Enjoy some time with fluffy cats and read manga.\n    *   **(Optional)** **Ninja Trick House:** A fun and informative activity to learn about ninjas.\n*   **Lunch:**\n    *   **Fuunji:** Experience a legendary tsukemen shop (be prepared for a 30-45 minute queue).\n*   **Afternoon:**\n    *   **Metropolitan Government's North Observation Deck:** Get a great free view of the city from the 45th floor.\n    *   **Kabukicho:** Walk through Shinjuku's neon-splashed entertainment district. Look for the Godzilla head above the Gracery Hotel and the 3D giant cat billboard.\n*   **Evening:**\n    *   **Omoide Yokocho:** Discover tiny izakayas and noodle joints in this narrow alleyway (best after 5 pm, mostly cash-only).\n    *   **Tokyo Kabukicho Tower:** Explore the food hall and arcade on the lower floors of this entertainment complex.\n    *   **Golden Gai:** Dive into the unique atmosphere of hundreds of microbars, each with its own theme (gets lively after 9 pm, often has a small cover charge).\n\n**Day 3: Asakusa & Sumida - Traditional Temples and Modern Views**\n\n*   **Morning:**\n    *   **Senso-ji Temple:** Begin at Kaminarimon (Grand Thunder Gate), walk Nakamise Street for traditional snacks and souvenirs, and explore Tokyo's oldest and most iconic temple. Try your luck with an omikuji.\n    *   **Yoroshi Cosmetics:** Visit this 90-year-old beauty store on Nakamise Street.\n*   **Lunch:**\n    *   **Asakusa Side Streets:** Sample grilled unagi onigiri or curry bread from local eateries. Try some takoyaki.\n*   **Afternoon:**\n    *   **Kappabashi Street:** Explore Tokyo's kitchen town for pro-grade knives, ceramics, and realistic plastic food models.\n    *   **Tokyo Skytree:** Visit the tallest structure in Japan for sweeping panoramas of the city from its observation decks.\n*   **Dinner:**\n    *   **Kaiten Sushi Toriton:** Another highly-rated conveyor belt sushi spot near the Skytree.\n*   **Evening:**\n    *   **(Optional)** **Senso-ji Temple at Night:** Return to the temple after dark to see it beautifully lit up with fewer crowds.\n    *   **(Optional)** **Kimono Rental:** Experience traditional Japanese culture by renting a kimono in Asakusa.\n\n**Day 4: Akihabara & Chuo - Anime, Gaming, and Market Delights**\n\n*   **Morning:**\n    *   **Tsukiji Outer Market:** Start your day here, wandering through street food stalls. Try tamagoyaki from Yamocho, a strawberry daifuku, and the crispy Tako Senbei. Have lunch at Seagen for an ultimate tuna bowl.\n*   **Afternoon:**\n    *   **Akihabara:** Immerse yourself in Tokyo's hub for anime, gaming, and otaku culture.\n    *   **Radio Kaikan:** Explore this 10-floor building packed with collectibles, model kits, and rare merchandise.\n    *   **Kotobukiya:** Find high-quality licensed goods and Japan-exclusive items.\n    *   **GiGO Arcades:** Experience the sensory overload of multi-level arcades.\n    *   **(Optional Themed Cafes):** Visit the **Monster Hunter Bar** or the **Eorzea Cafe** (Final Fantasy XIV themed). Reservations are recommended.\n    *   **Super Potato:** A must-visit for retro gaming fans, with old consoles, games, and a tiny arcade.\n*   **Late Afternoon:**\n    *   **Hie Shrine:** Head to the southern edge of Chiyoda Ward to see the captivating tunnel of vermillion torii gates.\n\nDoes this itinerary look good to you?",
+                "thought_signature": "CtIwAePx_15CSrGzg8LoL2uI4fneBajGdgMkyHJdH0Qo1w4YoQgJFX-fI3W2yBaiJ1_JGL5SrxYY2MY-zrDxTyn7amq-ZqUEE8YIBh0RdkIUb87z-3gw30-7DHYLOz5UVCJXqf2kENIlK2tC0flhb134cvr9s_fvnl3vtQlpu1k4UmLY5V14UxJmdGVR3LR7hLDsemyGTPejZjuEgzI0fPKzwE6JJxGq5QdtaR3xDkUDZlOeINBrL0iQwNjdHX3GfuE2BeJ4SCXxFFFmqfzz1mZxuQMA5e-rXm0CnyJoTRHLBvUjgWbvGplwYBZdzGONgrFIdhwDF3zk0evL8u8ReCLVUbpHNO96UHYQpiWUYV-cq77hs52RJR9MMOKK6Oe6eSvlBMYpTU62L9fIoPU6sSXuK5YPZaO1Az1o_XPxL-HUl4wN3MJsFSb15NdWlpqZG-Rd2B6HBSin-403VqQBKzGRxMI7X8aokz1HF7zYpj_oRHIZ1EvDblNN_9i6KOTB0wiSqwcQTZO2n6vqXH7niWZiaCNCce5KC9nYTwcfHhHadH7b8FTnWTycL8PWVdFruEAejSegbIoxZJXa2N0wZPDWLDDy2L0ww32PUy1isC6Fehe7_787toNshFKjjGO4E1ErVjHvGSiPXC_MfcYblb5ivxKlLbViT45dpJOjDHTkUolVjsgt5EUt5Gv8LfNYghzpeLDr2wGvo6_Xu6IWlSIbXbWVZ3yCfgoJbNrcUNp3JHe94czi8h7mHOwo7DK3L1xxSEN3VYV7YsHxEEPWy0xftKJ7TDrQGSAYjujJ4D6btJLu-MPf55zyvAfDLx-ii5zf9nlgiek15_vJ32OBOXdpexeneNwP1i39R7PiFnRl9sEGUOVJcDekWFa9DYhgHki-6rsNr9JzQj_pZyCiTtoJ2x2GiSUUPbxb3OkOKVgKNMSo_6MUjBsWwMwoZkwxBeYnckm4WTP4aWE2txdIOKjznDhBAsnAnffms05zv8nVTQ5vupfV0n7TIXgs9KGs840oI-pbqdjiVNKYsNaSq9NYYjipdr3Gfeln9nLTJE9TCCe-9L5EXPDvkBkwESsu2RV1mUDkbNbfY3POk9E8mJvdSZur8kjlCRZe6qBgaMtzZCR7bhYMP_yJx4R76K8suyIQR8Hmu44KdFsyCmVS2EfZByNn7f0OiWZIM3Epy1DyhpU-pssqAnnxIhIHaiAbMWzvQgctZlt6bMTtyDXuxaXZ1KrAr0em1AnvTGcQY7_jUBbpsFD9FE_DtY5_PqAMifrERmtXRtYR-cO6LMcSvHGOmxiPTxtB_jO-BXNJSJvTK8UX-hA3oA7GMayem6ZYLhG1HiyDmyy_cplDf2J92BbnQFGoxt6Yz2l6P2HmLMbAgGwAKI1vUV7rGA5VBVUaxq4j6vnPCYsSC3GOMsUhzFTK8xTjKjgrNNgDJNpeIMCf2ntMTVRC8234SLWKgKY5lIkz3FFLsNvWEBARIvj0OuCHPI5CGOoIkd1A9Vjol4LjWowpX_Qg5t2_I3uU3ymY-lNOci9-3UMuC8D2lAkdxkGnqGdfif7j3MbYDIXmH9_NiJNy_Uf7iM4bN7yvSq32pH6r-HI5vo1fY5vmOmjQS6ebeDGmreCk-Y3qTvakO3tJ8_e-D29ZCnBnjoMvqFSpG4TV0G3jpw9M_8a-MWMhAzqElZsFipYCEM7DEO1TMQmTUZAXglOAQcCvBjFK0ltIu4042ToiL8m0SAmK-C5b_6DGIC0I_Zu5k7Mq4u6eVu5kCvIcS-hd4u-EFgHe5aHBS79EIJN6jsOeYum3EWjWxkzHkIvgp0G7nlvye9Z3L-FG2danhS8LLPbH1MSz_yEX4Jmpu9EixI-UzovOPoRMzzChN9jLSSW-jNRYAvdiV2xlFwpBOYSv68k38S-XxXSDzcNbw7AkOmlBl9H-tC8Rozxwzd0AJppalHIS3j7HLkzbz9-BHSYPMxVbetx4CoFbGIzgpGcwEm_DALrbHc4eZ8WjSkcZ0YbggAThHEDntU3bTSfPYnxO_7vt2MUfn0OIrZoxSIpg1ehxYIm3kKZJBR9Kwuuo7US1rwlV_cIzzDadBW3aASaMDVRWdN96HxNWN9u-o_Y4PW_zqA5R2zasz1NoZiUcGFJkXPJiGdSQvF6T2xIOLaIG2EAW5GkkYOiFHa89IuizZAuUivSiU1zgsYiYwqwSU-RhhdzWtnW6uXyo9WRPeiigwZ3z0_XSBH1eGxJdCQVGIYgB9tdMvrLrkOsiBj4wyU6HjSfweOYFVXg016GUrIoS21yboSOBWxCefaS5Ph3fhpEXS7mqumZPsYt2xlEBpA7T3ZLEL3JBwR7evQ-qn82WOEN9-Lq4fsMx7WJElyKWR5Yr5ibOG2UqAE7ouXauQBEaxxwdDx_8TPO6Dh1ccLUIyGNsunh-CWjPkSzls4yzZjg_dsYj7GFqh4i89Rv6nExQnX10JPdW33C_BJGKz30arbXvXfDkD8c2mBW8Hy8ilnZZ20ScM0t8Dou6y0i7k46pS-QlFOqolanUtkGONCe4hFGKUsMhpeuK_MTCQspoci3KJTSXTCsyORBFcCJbUr7ETk-S-1R9nfhiJd7vHfyTO5GAcUGa06cpIBqpUsHz2Ia0YITBZ-V0mQECMB5W3Uf_Lh0aWtA1jUdsl9t0Dp8c4Ffmf_Q5dq4SDNFEuTOPW-83NS4cLmJLmrA-vloKNUzqjRCEcC0s3KN_wpm9kGAC-xw4a67p1gNFBLfscDwDUmoPfzTKC_avAUA0j3GntF7rbrt-YHC2aktob70bKMrR3FCcxSttqW3fqxFw83q8V6Q2DkrIRluPoSemUfeCtmXgLoVAOuvLQK6LYTAKi_FUkzWNztrg_V9qcDrG2DvwCVmIixDxkFa_Z9tSmN119UzC9h7KQ52IN_vVzdLp6ncUyFVebn4kznlvp8QEjvf4fBxlnx9Kv7GLHRS3ijd_YzXmr48w2xOvoEbUOktJW2GA2fSMW9fW7FdDeLI5OOqCL9QBKpTHY3oq5dGIyb_z2bXzwDztS1iRYUKaVGhaNDeEoGDH97CzRcvoibAT1k52gOU2A0sJya6JDLcvCyq1NSls6Zam5XpfjorEp-BJ1xoZ0S54-BvJFB6JO1pNHXHn3tMxfbrLBEE1TTATFWkP62CN9F8DqW6cxrmVd_q2mD6kwJdtqE2QOrB7hPANMFtP8p-32lITbEVCpgVs9F0y4DpRgAVnSG6y-V3MytmKOjjVHhiSUcO12Pm2uw1_LAA4Q5hCL5lzrplKl2MnOwZvNpk5vQx6efOmwyGZs8uCOFSIiS-6KgaB7GUSptQ7XyoK8V5y8ZLqJER1sSXW7ne5JNJVhSGpZcZXHXDHhkfW2mmdKY9g6f9LOTcfPZAcPTpF2EcNlbKZusOB3ulosazCbH-IZVRiWUGU5LF7NF-DLMDdvlFy64xd2kPUhshDScPGFxaB7yZOl7fT04JNv36AOcLKksiVo8afXgds17FE5xKFKDIl9v1EXIE2j1vvApQQRkDQSNE8ESImDKN1iKVntEe7f9lvQKCZrhBlCbistioKXk6FtS1TYq8pjn3AC4DhyG7jCIqufOXpa7K-LzoSebxaqqjqbRpgsvMwd1-oibfnMtcrlBo7CUZVh-fUeZVffaaj5tyBr4bibKQjgNnEoDQAgc25FhBxEgkR3TuSBljA-zaVKoLsuAOwe036ZDIRMayZVikcJ0S2fLgBxBhF0jRk1DGLPPKsvQtG8xAwYyBDROAVmAt_rNaHnQ1xD4EgyXynSV4BowgOM-OZW5xpskD1QewUUbVfsKIUoHivfMig9mNIaEzHC0JVP4klTgH0YXg-rBiLEwCOg2jWGAFYCpPk4D7kL1hR0xM6hBPvdm00nADjoxoI9y3KPsNmLhOPeA-KJzTidGrP5eKKWTEN_XHiByXyp6iVtqNFzZROAZG3BNDq1RL7hIgLHsrkOJUDhX5azi70GOMjfykSGBZe1v6Ozy0JxdiTV1pD44Qv3jHa44f0QmJOtverRd8imqLQzYdR8up_0QfJU3YI0eIcpdRKPCTsJIlhTb4XTTPUQU5B9MlgLg7dOcnOIQTLb5Yk3j8Nu3L7gdAmHd6ITkujZCeCwl0XB07XiPtYi7bbDieD-CmXojsTlhbX0No0hCloct1n7DhvDFfHGzOtmAl-KBZkCBhIAjiSn7LHfteetpdCjaZScl1Kg0wGvIqfRYJJ-_tn1cqAQ89gJpS5_xdMWMgs5rh6_jWPAY5j2OIVMSK-VImI8j_QgkNlG6LPekWGfhsdXnsNs63xWZrkVuYmdOxoevUb7FOHiuA6sw8IP7pu9FBkAYwa8UoSUQX6ouNo-bLNCghRc1_eSoUoYfXKTquAl_Sx7II22i1W2CY1-lEygMNwQVFaCphO2QKHLI-CaCMP3j343rc0gT741g37sAYdy5RaTfWkvEXI1Ut06EmEcdKugesk-VJ32dcgOsMw5z2qzGBoC1rVforuAdxfVVslEYt0qoRKTzGvzEyZqPjNUWsYdqTrm_WCi3l0W2wNTYPA5bNiY6R5UWvYQjyAzFf_r_FJUI1wXYb4icq-9E7UHyF1xQWyLrbuuXj4TXQHoMfDuGW7p1SrbiQjj1-TMJ2gHTknF0QvhsATgwaPll4b8K214TBWeDEfYHJMiUk4ZYUhMomsMIEzxmC9R890Zu39IUVnY90If7ay9pDsy2I6LuY0CiGJ1VvODt-ObKl-tOTus0-MjSv0DzDTESq7QWhNfhbYfurm_SgCjONo-Sha3SJ5W0mroOJXPnBi9PC7lHrNMEqDubij2Dg75gxrDcRtFnPVMwnoD85tGavYfStsIAMT6fk5CX-9WBxC599gkLcVf7QkwardELMJW-JmG5coQ9w1YVu1Q2AEc2SiSeH1X09ke_J7EOkLu4MR4QUOLed-13Ndhopt3Hu_FNWt4PkAY0F3A8aSHFwn5l2yqfqYvxnU3HR9Thkq71DTtY2_k_stCcCKATZN1bfD6-h0k143pmYIWaNOJVGU98DmgtGLYUv7a5pOw34Wy6xvwQNmN5Y7NbsWzyHtRlg0626Oldu9QIZOEItlGROepwZeKItJ6F7RBPFh5uydUiUAQ-4aY0vh1PYY4enPE3vP6jk_9uOEp6c-joJhgG9DQh00O85rj7amewixzGsELlFtwREuy0pYOCxes75EJWxiPvhAhHoP_FMm7WolTDo77et6XNOj62eoD87q2uV66Y6IHYyYaxJ6W5on55DF9gC51KL8nqfOLFwz2z4ZL9V5zgbjJ5fHQK2hkeXbDtFw5R3EBT8Vtxn1KnqsH5UFUDFbSxv0azm7ZEvrH97deke2h6Em35CGfkMTBA2HfPoD0yNXDX3PZYNmRQwYRvrKUy6NNUETocjnLabyDnNRIMIKoRPkxfUuBfo7Wljf8iUu4B7AYKTCfuLzif87EzVcKExJ5MPc1QLQLhFGD6Wa-jcuDeG3pJWgCsJcsU7t-iSQTg9KMjybwcV_H2z-Vbyi83lHXpb4RaM5gRIhwxP0OTf8j-8BakQvwwl_hewQAHonY_tfajsBHCRbw1TsFOC7whUe1O1CkCiIpJoPhWT-9kSLUD0mZoRF5PQgIl6RIuXf-FudH-Z2H6c0rr6kRBaP-AyH091LDdXQITp-7kNAWYo5r6kvCaAo4EJLjHaEMi3jpcZDk8tWdhDhh1ZI8g-TAb9LtXP9QKXQWLR7ul6pSK_ePgpcCV8Oc-gHmOUZR6aNuEfxXpJYnC3Ekz6_AaNE-dmZzRV-mHgJ4d_LUVkACQAMJp78yWtMzx5LQzWyhYbtuipXBxpTLzCYSedlM46rz8PEvGgwzvTTnafZXYuJqin5XnpQ6MiGQXM_TOWDsdRjAQnHWRzPgATYV9EsOaOE4ziRC0DIC9vdGekvfUEd-N6F5DMrgu0PLU1n1UtFeEkiR9LDw6yjgqTUnPMDe2e4tHG8j-Qh3MvRHo1Oc7W3UxKfOWCBgiAaB4NMuO5PUQypxmxGjajeeavdfr2bBcCukYYgnNmNHLTGS2phM2qJiN6Sl4EPMwb2xO1QEIARmeB6T6AsVRLpbvCMWCulLzzuBvregcU5Dht6uQ6-17ITJpp3ilgIifoVU00tdt3OUPLLkw_HKXUiGRbbO-zfoaSv_9OCkQGdfYl1IQeo7zWmNRo6RT1r2yaL6nY9RW3dMhTNidvo3TC4_jVm5I6wvsKM4gR8Nf1Z5_4sqnh03EGKHCEROlCvWuk_SF5iaxuL81vK7IYc5iCB6fmJ8397gR0-bY77Ielf16xL5PxaTa-V5puPyxpLB1XmeVNT25dz_i-DFVdNRMsTW7MXdZpHKDcF6LbGve3srITk3RadzfyeZP-3ys0L-2Rln-Gzi6YCo9bEnEjh5Cih4Hqc8J4nl0LjmWBJEVD0xisXLjxanPb2lLil4dHVkMyEGyidpj3Cwx08iqSMDw43t2aFCPkAIu75K8BbWnycohBwxYr0fgqt4adUKVqHyCWWSm2UkNyu-uOBtw3ERshtLJ-y5IaJIpBw_Huwe17H_i-twgqmCHatVF2J5LMj19GUC5-HHiLrEcBrfnv2AvMOg7g1DAZe7DOCbCPDPpcVCq1x6NELAynVoTlf10gOxfwKDWdmKbKVpoyCXPmiTfSyg4hb4kwHtuusfx_x7ZwQmr58bhjctKekiAKYovDUrJip-OntfSp6W3nMDIiiFSyEWt0gN0mCmgokSZDr6GNCB2HQywSuG6a7whifongSHzfNxLDWwAIB82kK1m1qEgXOyFJjgoFGd2LiQN6_aBOI4oVmWaBsO6_-DOLPcZRYES2uBbXUZLbbwJ0Ta-0fE2kAB7hViknoWcH4QQWhI2lSq-3mSzNZ1QdSgMVRnNT0NVzoe1EsoPTCuI0aWXBOxmFVsC06wrSK7441WLi75RnuNLgfGGJLyjJ1-ap59_xVmIgMSRSQ1a4Foo7MgOvFzaMMglTa6fcdknvPzqpyG81Hks7ogE2HICJDWaI3iepDUVfJUA1lAdww7nFmLskwbgZamM-OU0zdJxv1phHhJt-RqLQJZI_3T15CKbct3K3REWZnespnqmUQUrbUus8Yr4MZ35UHcer3umBOzVxHBQ9XhSWMX7kC6EVFRMG9jclN4A56AGTVxfC0pfkTILcDpo4H3xD5vnQIqg5j6r6lDo4IXygKq-EtCLUlJx2BXBsVqZ0wRQXnFbTxtxIXXMID_aKKGClaVveUW3kP8FKuZPwRnMWabaGV5qBtp4OBd2iKHztgZS_4kMjsstdTqhf9GXAfG3l8TDDuDZh0Kr3nmRU37fo5buH78TTvcDT2X4fv5UwE34grA162Rt6JpJOWINDFIGs40jlgD8-8_NpXKYR8i9hgVMe5QF3sBdPHsRid7-OlVivfKfcnYP6tpck_v88u8xunuSuAz54MgFQTY966PLPHkBX-ROKpKVUHXkpXNkF_AzdMrrikvTXE-XM5MpVIJ_SDJiirqBS0hvH1Rst6j0RJERWSy964vBYWz_zoqnTh-NumU0oI4nMroUJSEmoqPevEMmo2jZ_gNCxkDJnEAaTcMs28Ze5Z_ZvVqmoVIWllhLJ99DEUaMEi9zjmyjzCovFo0tbpDmQHdy-y_4HQlFLiDbBdbOFGYKm_XR5ZGOhsZKBOLt0dNOSzy1bpkKBsVBeqDznXwXjB2CncBZJXFgojGryC_vkTJlNEEwyC8OKETYIPvyP5VcKIPLclA3alrSC_NPvwAuxnFiCbQR60O2NfkEyrx88za6EfbEmAYBTgYuVAs44en-f-4sbiUYEo6Mo8oDa4AZ0St9oBjR11HJe9YXzKbqMSHsUgFfVJDWAhj6dW8CDHnUAVgGq0M_r09LCB3K8CY6NKXgu17jyXQCigQgHjF7lMzkkOxnCu-BLmQigqf1ZgerjQ5x4FLno9m3IRz4hpKxZcUXfa8rw9UxmmlA4jp1kRfc181Cz3QAHDrLnbfpFeVH1mpkZO_jCEIweTTQMltjhsEnFditIEF21I5FLIsoY6dMWy1VDzzDgACVXHmgBON9KcdnsQ48qlGQ7T1agl3Sjl1o9z-wVKIACaYjkSrw4tF8tf9e6BanCIZ7ZaH3_ee7IWdCYnOxrSPMCCJOTAjFesG8AtWJ0DQNrbjVsBKDZbgCdgm_1pzY8aKUZ3FDhm0jY8JNfCi4xlEFf7CMj2J6mU4BvDUQOwszT7JBEcdLPXntOGUwBBzjPakHicFtpURVsmc10O6HIAFiq_nn7IF1oZQc61pd0omuhV6LDM-6EXT7iRWni05Q=="
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "gather_videos_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-f84254ad-560b-4444-a577-2c2eb755f4c7",
+                        "args": {
+                          "key": "ideas_videos",
+                          "values": [
+                            "https://www.youtube.com/watch?v=I_qaccjrirc",
+                            "https://www.youtube.com/watch?v=Ll-XGXPHWVk"
+                          ]
+                        },
+                        "name": "memorize_to_list"
+                      },
+                      "thought_signature": "CuECAePx_16IQePHWSg_HSmUZZ47qGhCm78g0hil7JSsDQi5_hHcVBNCnC2-7tt4aSoEdB8ofOcId8ICPBbe0ZEceQPsuWrqPq7ONxLuP94RMGno-H-_k-euLwdDzzL2_9MY6savqAIi1eu9mNTlDFbKXfgEQw6Jlo9WgxMkc7gNKgFNXOsxaR6uuQoEG1NfVjiu5dhHTjh6GqNtFqiqLgkZZ1AYakKsOdg1tLFCSqnm3aDocgXp-IIZ_7N558VC63Ee9zXd5z5GtJUoCLqbKgaAjEw2Ko7RAVBYkopj_DG2Vu5HqfJgiciCcrSFnprg3vPkYQtykbW8bxpPNbD0kx4ytDW8QwYviMo1IoFebCmBkz_vOkHoSRIBd9U1mOuY9ta5r0TJhonK3qjp8bTGyFVId0kpWeQr8ydkjNpdGPOIi9HVEDgH0sMNybhJxpu2L3PIKmyFKXCAEdW-A8QGpaM5-QoKIgHj8f9eYKXChkiknJ3_6Ws8_j9g_PzXb29rU4HfFzqSulw="
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "gather_videos_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-f84254ad-560b-4444-a577-2c2eb755f4c7",
+                        "name": "memorize_to_list",
+                        "response": {
+                          "status": "Stored 2 new items in \"ideas_videos\". Current list size: 2"
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              },
+              {
+                "author": "gather_videos_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-10e26c0e-3419-4383-aec4-09cc0e4875e2",
+                        "args": {
+                          "agent_name": "root_agent"
+                        },
+                        "name": "transfer_to_agent"
+                      },
+                      "thought_signature": "CpICAePx_17B2o5wZKjhzddG46fQSWGDuyJNct7dBn70Z36aZsZqG5Tzo0YSekJrfIQcwld7p3nOhghCWRCTNb9JCi3RF3xZkUCUHB9uwlbZhsmcpR1LfQqCP-guZXrncGknDt3FQve558DFfb8byJmDgPxSPK7M6bpmz1LZIDlPTs3mC1xZPWsn90dbw7CWdw4FIVoU8Gnv3acY6IhHo6SoSUOLUODQV9rzlEkAMbwCVVcSkCTr1lchujfOqK3OdJiKV4T8ILnKNkBOV1c86E11Gn22bXsXTjWM8X0pat-Wz7EsJwVKU2i3NzQFjYrEs4ABBC6twNykapRf3ZXPy7NCpRxG8lATaLgLetyS5CXiG6BXKA=="
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "gather_videos_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-10e26c0e-3419-4383-aec4-09cc0e4875e2",
+                        "name": "transfer_to_agent",
+                        "response": {
+                          "result": null
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              },
+              {
+                "author": "root_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-89d6c154-ec16-4619-9295-44f8276f578f",
+                        "args": {},
+                        "name": "transcribe_all_videos"
+                      },
+                      "thought_signature": "CpwFAePx_16Dczy-lgfhRds6SWtr-l7_OUpB8TaxT7gzKr9IJGE1MVCsnYwj8BkHjMYnPplkMsgU-iAS0-HBsztytoujAxqfsbsdefOXdAE8QLlDBjlSMN3jozhquZh_vYWu48ZgVXaPoqm_VyndxSeMhwV4BS6jcL6_gmnMk2UFtPBeXveF3lU6l0KVuZOYVY2l65B3ECgdZ9GjAV0vof-jVn1rktoerrL4Hmb74QVXfNCdtPY7KJFJE1n6sOP3SYqA8ZOlT7WAkCZUh49_5HOvhQNclK13FYzJ-YJbm2BaQN8C09DkkCRudUfhDYWAOpypOab5MS7_NR7GDo_t6_7ZkcK59CQC6LPqFQqeep7fKVDtuHJCxY7kynVtPSClFxH45SCuQ03HUdRUBZa0RMPB2SLiwHHrN_tuPdqsA1bicmyic3AJFKutuFUK2rRX7PJVCyM-2TCWpzhn5OKDOb1nv2rbutMTh47Q3xLax-T4h98zPn042ooYn7u4nsZ53wA3FsI0x20TFeZ1nZ3AI0PoKqHao5eNnrRHgCqWBGbSqBOJzL88s2ZS-gk7ZBHiQoK3EwmICXoJhp7IHOqYo2jdXIgSYGDR5mpqmd5BoBSL3QYJdRsoh59I3ymbKVDG8GuzXydMuJgo74pirim4taqfUR6960uQ25E16Zu1sF6BZWo4zVbAZ4vLVoznYZBkb5IKzHL-Hao7-IuV1fkEF9mPygfuMtFzUw1XppPDs8c5WDmMwHpv79NDQXXaerhKK3SPzspGLLVuYSfa7uNPQGmmyqM-qA1VUpitnIFltfTCRXnk2hmj9jlC4tA6qdSsMqQCZugeyRqqLnpLePvMfpzyJwM5gjsCFzGPNMJLiAyka3F_8NR8rUbvPuGPz50="
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "root_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-89d6c154-ec16-4619-9295-44f8276f578f",
+                        "name": "transcribe_all_videos",
+                        "response": {
+                          "result": "Success: Transcribed 2 videos. 0 failed."
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              },
+              {
+                "author": "root_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-273aafd9-68e2-4759-947d-798e6af1dc31",
+                        "args": {
+                          "agent_name": "build_itinerary_agent"
+                        },
+                        "name": "transfer_to_agent"
+                      },
+                      "thought_signature": "CvwEAePx_17z2kFhC3egaLkZCPso05swNP1VVYd_peVlnH67WDxfzm11yMoCvrfH1CPJx80JcJLeoALPp2kL0mkCiolyV0bAGWHkwg3wkLmYIrW6sa4B3J-t6cA22yia8CauJ0k-mDCnxLSO-oXn18eSNKgeqt98ennO5h6FR2Z3wXKJXZEAVB2TpvC93-3D9OXaRxb4mlH0Ww5Kk3eMpj4ui-6Ueg9mKr4aiHqIuvXbOYQzqDcQMEUF7-dsfI0XzK4m6InVZBSaXhNI0MfRGv01k66mJXIByKW00dbWkQPoNdHLm5uKwlMGzakd4KnaqL15eXHyhAelKNgRtUoFAGBPgPE1XLwGiPpHlc3fzNLsdY3jJ5kHIclEZiVsgTTeAkoMloPnJzdsazKR0Ct2BWu88VV7GuSKYcDWFNfLmaIi5kma_RyZUoIV-9iNEWyg31I8xcgNPLY-gPzJ1gmDOTqpNF7-HXetL6D27vx7y7MVZIm2W5b-j410wlvezFC5KH5nFRPdsHxnHgo1lYSGahC9BoWa8XoGESYQfbC_JLgAX2bf2DoLRKXXG1VumMeLZ4NeEoZdQ99GaAyx6HciUyQb1fXdgcPnd68y3ttz0KVbiwnYvq0AwOrQ02OhZKfL2WPPdPGyAf9E9ZE_wBKStBFX-vnK1z9nGnaz32snPfl9642Cqusj6cOfjHttVZ2WN7kTC2wet1BGjHFQRBFL214xnIxJccT8LClNh-48Wm-9TZBQCReFjoTwXc9VL2KUv7PpRTMWNh9njrECDXErC7vijOh8InRCBYleTUl0Eo1NGyFaWWNXs4By9LLXzujxMLfm7g_1klSB318Tb999"
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "root_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-273aafd9-68e2-4759-947d-798e6af1dc31",
+                        "name": "transfer_to_agent",
+                        "response": {
+                          "result": null
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1764495733.781509
+        },
+        {
+          "invocation_id": "e-df35ab29-d293-4da2-a729-2e78a0b06aca",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Please split day 1 into 2 days, and swap the last 2 days."
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Okay, I've updated the itinerary based on your requests. We now have a 5-day plan, with the original Day 1 split into two, and the original Day 3 and 4 swapped.\n\nHere is the revised itinerary:\n\n**Day 1: Shibuya - Iconic Landmarks**\n\n*   **Morning:**\n    *   **Shibuya Crossing:** Experience the world's busiest pedestrian intersection.\n    *   **Hachiko Memorial Statue:** Visit the statue of Japan's most loyal dog.\n    *   **Shibuya Sky / Mag's Park Rooftop:** Get stunning panoramic views of Tokyo. Shibuya Sky is especially popular around sunset, so consider booking in advance if you want to visit then.\n*   **Lunch:**\n    *   **Standing Sushi:** Try incredibly fresh sushi for a quick and delicious meal.\n*   **Afternoon:**\n    *   **Miyashita Park:** Explore this urban space with shops (including GBL for Ghibli merch), dining, and a rooftop park.\n    *   **Shibuya Parco:** Visit the Nintendo Store and Pokemon Center for exclusive merchandise.\n*   **Dinner:**\n    *   **Kaiten Sushi Ginza Onodera:** Enjoy high-end, Edomae-style conveyor belt sushi.\n    *   **Nonbei Yokochoo:** Explore this charming alleyway for dinner and drinks. Consider trying monjayaki and okonomiyaki at Tsukishima Monja Kuuya.\n*   **Evening:**\n    *   **(Optional)** **Shibuya Kart:** A memorable (though expensive) go-karting experience through the city. Remember to bring an international driver's license.\n\n**Day 2: Harajuku & Yoyogi Park - Youth Culture and Serenity**\n\n*   **Morning:**\n    *   **Yoyogi Park & Meiji Shrine:** Find a peaceful retreat in this large park, especially beautiful during cherry blossom season, and visit the serene Shinto shrine within it.\n*   **Lunch:**\n    *   **Harajuku Side Streets:** Sample street food on Takeshita Street or grab something in Omotesando.\n*   **Afternoon:**\n    *   **Harajuku & Takeshita Street:** Dive into Tokyo's youth culture with quirky fashion boutiques, street food, and themed animal cafes like Mipig Cafe.\n    *   **Omotesando:** Explore luxury boutiques and modern architecture.\n    *   **Higuma Doughnuts:** Enjoy handmade donuts and specialty coffee.\n*   **Dinner:**\n    *   **Tsuru Tontan Udon noodles:** If you're looking for delicious udon, be prepared for a potential wait.\n\n**Day 3: Shinjuku & Chiyoda - Entertainment, Gardens, and Nightlife**\n\n*   **Morning:**\n    *   **Shinjuku Gyoen:** Explore this beautiful park, known for its cherry blossoms in late March/early April (book tickets in advance during peak season).\n    *   **Hanazono Shrine:** Admire the bright vermilion torii gates.\n    *   **(Optional)** **Cat Cafe:** Enjoy some time with fluffy cats and read manga.\n    *   **(Optional)** **Ninja Trick House:** A fun and informative activity to learn about ninjas.\n*   **Lunch:**\n    *   **Fuunji:** Experience a legendary tsukemen shop (be prepared for a 30-45 minute queue).\n*   **Afternoon:**\n    *   **Metropolitan Government's North Observation Deck:** Get a great free view of the city from the 45th floor.\n    *   **Hie Shrine:** Head to the southern edge of Chiyoda Ward to see the captivating tunnel of vermillion torii gates.\n*   **Evening:**\n    *   **Kabukicho:** Walk through Shinjuku's neon-splashed entertainment district. Look for the Godzilla head above the Gracery Hotel and the 3D giant cat billboard.\n    *   **Omoide Yokocho:** Discover tiny izakayas and noodle joints in this narrow alleyway (best after 5 pm, mostly cash-only).\n    *   **Tokyo Kabukicho Tower:** Explore the food hall and arcade on the lower floors of this entertainment complex.\n    *   **Golden Gai:** Dive into the unique atmosphere of hundreds of microbars, each with its own theme (gets lively after 9 pm, often has a small cover charge).\n\n**Day 4: Akihabara & Chuo - Anime, Gaming, and Market Delights**\n\n*   **Morning:**\n    *   **Tsukiji Outer Market:** Start your day here, wandering through street food stalls. Try tamagoyaki from Yamocho, a strawberry daifuku, and the crispy Tako Senbei. Have lunch at Seagen for an ultimate tuna bowl.\n*   **Afternoon:**\n    *   **Akihabara:** Immerse yourself in Tokyo's hub for anime, gaming, and otaku culture.\n    *   **Radio Kaikan:** Explore this 10-floor building packed with collectibles, model kits, and rare merchandise.\n    *   **Kotobukiya:** Find high-quality licensed goods and Japan-exclusive items.\n    *   **GiGO Arcades:** Experience the sensory overload of multi-level arcades.\n    *   **(Optional Themed Cafes):** Visit the **Monster Hunter Bar** or the **Eorzea Cafe** (Final Fantasy XIV themed). Reservations are recommended.\n    *   **Super Potato:** A must-visit for retro gaming fans, with old consoles, games, and a tiny arcade.\n\n**Day 5: Asakusa & Sumida - Traditional Temples and Modern Views**\n\n*   **Morning:**\n    *   **Senso-ji Temple:** Begin at Kaminarimon (Grand Thunder Gate), walk Nakamise Street for traditional snacks and souvenirs, and explore Tokyo's oldest and most iconic temple. Try your luck with an omikuji.\n    *   **Yoroshi Cosmetics:** Visit this 90-year-old beauty store on Nakamise Street.\n*   **Lunch:**\n    *   **Asakusa Side Streets:** Sample grilled unagi onigiri or curry bread from local eateries. Try some takoyaki.\n*   **Afternoon:**\n    *   **Kappabashi Street:** Explore Tokyo's kitchen town for pro-grade knives, ceramics, and realistic plastic food models.\n    *   **Tokyo Skytree:** Visit the tallest structure in Japan for sweeping panoramas of the city from its observation decks.\n*   **Dinner:**\n    *   **Kaiten Sushi Toriton:** Another highly-rated conveyor belt sushi spot near the Skytree.\n*   **Evening:**\n    *   **(Optional)** **Senso-ji Temple at Night:** Return to the temple after dark to see it beautifully lit up with fewer crowds.\n    *   **(Optional)** **Kimono Rental:** Experience traditional Japanese culture by renting a kimono in Asakusa.\n\nDoes this itinerary look good to you?",
+                "thought_signature": "Cq4-AePx_17iQgm294Jxa0G42PYDcjqRPw9HiBTZz0DzAqX0YcSUaqmNnwKdNPfyVwFImOR0irGm-EZjx6jZ1ZYN_joytkVIS7Qm0SdiqxlbZodCsKYf0TR2y5XAo1Xa-OXxaaAUen3QhpmYgghVQ3r96E9JBZvWMvwiSMUipNPCR6oWialYKa_WGhc64gOgfu-rH4ybOxBK3XGVJj5Cucj6_Ml3CTagnSGEUk1yJCBMGAh46pFH6_pBWw31SDlZaPuSDqI9Ecg3vPGEOcilaRpkuu7eQ4BlCs83oXqcBkac8rRbbsSmygnGIJjgn059Rxuc5kiOrhf7H0P7vWdo-gtnWe8GwrV3f2wkKIQNoYTM_SVgdyq3GV0HLYYIrVRLHBrSldDOeGr7YSkhIjWI76Lqgr49yZg8k9GPR9qN2OvUzJ_M64V2BxVzyJKYdKStAF30U4lPGDfXanp8StgNBPJDVv65wqHrZh6sQYsrJGZoEpC8NgyjVRuzvukxgRd4ir4fBW9CDHb7YGf1yKdSTYD_OqmAX88ZBUnYBLPC66Yo1BbscX2pXr1y4YfEMqiGVW17mUkFiuho-fh88MSUhf7LeTZ7hycZ7mDVafMkreBD0FpWrifC1xLV8ztIROXi0h9op-aPC1tqAZooJtKEVMchwGxSzIuIBA_w8WL51T6vzn75BTcfTig3L6oS-53qe1uv7sNzMQrdk6uyS7qnlL66dyf4Ua9nPMJmfk9xSL3yucb8wcCtuJhVFjM7OgC02b4jKVzYLHeKTDhf-h00i733PWTCVRVbjWb0a1GigEV-yc1xt-A5wuRCfIvrviRqXBfPDMRnQ0pUR5XL3TJ0NlWC2A3Ooy955ox71u-fvnU7cULfPYwJo7SBc0CVQ1AkyS3LYGEFPmZF_eoENnTF0ZrGwgluiD4L4hQofgbJvqph7Jxj2u7Zpm_A5IrwJD6abgBZID0WpCmxnQnQ1uqh5aWDvwCeN4KoxeWApA1HMbE6vhJLHHc0uJAPm9R2ekop1gbBCxv_bK7p831ruae9YzvuiCqCKOtixCeH0NtLHsqCth8Aqaw5pXmfefTgKBZUOuGjR4olqeIuPMKfICOa2ZwqscgoaE9byr9nvn3ro7HWI1lv8KUGHNSw0KYxDaBe0kaKNWHKJoLaBc52l8V9KuVEcrFw1-JgmqaMcNOn0n4KEu_0NSUR114eKisbAc9GN-WnvixKSYSDRA2zKpyuip3kkbWLFPs5Nn7PRiZRw2xxqpGPIX5_VMnT7SUVgS6getLBfA7S7DgtxXYBvbhlPOfJBdhX1NFzqImEqjfMBmtWrX2u911t6WpFBN8eFXTDTthiuLF4gFI3F5UaMFcMkqDxdI95a-mjdpAGohsTWlhAR9SRzvh_pYVWFjif_t1JJpqzKNAtWRA5Z7g8EmsKwItVRW8PbBWtbVy2puqTOql1hhV4BtdH-sGdtk07pm88649sIcV4ETZPeECEjNF7ExpjPwA709dxNJta4GCZ_P067BMdktAqKmEnPEHUeKxzeLj2XId6UQyPPCv-1gj6oUydJJKz9E3QI2TnuRasa61PfGi0PXvI5nz-O9okCutn6qA_LgSHhi9kHot01HyDuJmmvi5X4r4e7BYhA5eFQ3Tms-dCLNeSvLHk4rBHHJoJa1xdbG135-y3Sx4nbnCo-AiP004CH5E7jM_zyJ_ZI1APfjrlwXbhIq5X7kWW1vYHyJVFvLPfo51eAM6GzpAlyfG2PGJnareNROpxF1t71YA99AC4sUA5anIcddURuLtnct2y1Si0ZtnKY_2PLAIHrr-ORAH9gIhTorYvviFfAcF3kVN040_eKEkJT0FDPshC8rt39IdWFeS2HHP8jOc-ITEiIhaRqUAm3YbHdteR4sp1nBJ_NBqBBioernQP9sglkEsxpJ-Gq-A4KlopEMN6EUW3qOBKv0V5drTgW0DsuUq9JsbKqQ4reCoTW8AfrtlBMD34SgGSSkmXwqHqKbDIWNDWXlemy2n0kKj60Zx2IvsQ7tQ12tGw4vDmzyXbch-DmgLLi9yrm8_BgX--JAIYnPnFWgjghn30WHJ2FM8iemziRiuxt-OzNdwvss7bzbe41kSTT2RZ9AQuqDPIHk0WCd3RS926sOhEgBOxxvQNQAzP4tfX3-26Uh3KxNmQxD48IM8tHTw36SVWBpKH3imfpV55QQtY-kytVWOAD7gZMOuUsjNQCl4KRCeoSVvqyEctonCmnxDKvc_F_NN2qJcZMQQ3G5e3S7za3jEPSE7O17SUyoa5B0RN-TrihxrrQaQnsTgEZr9bobZZPcI69pKlQqqv7tO1RA6jxt6LiTILCkn9k6dqGSRMgAXTs06NLh2IjTR3p4I4mJ6ACLEJ8ZK2PzzM2ouRygTPSDo0o2wV_BY6b1LdrvkLq_XvTevACgpBMUR2ND7dQHG3buAuFdNeIRvqhwKKwLI980AfcJqJROFj7aVwqDIVfD8IxRXFEcg-YobQZNpcVaiaUKiEmTFV1F6dPdLEWzYgnGrOQkhIj3XlXYX71f1mh2y6fqk_j785KM5wnZz4LSAfoK5habucDeuJjk8WsqcYV2k8xfh2NTDBcZUtxWmupEdt3cdy6hqE8a1JLJX-UL_9bWCApSa-VPyJ8XcBdpgZzNbwIhV2otbOmnl-zDwa31E2GjeFUslPXyb5D73Bu4hcEkmutz00ZlT-pNDisRkIvTb95kROghB7IFtGodCJmhhhmXszo0EPFGJSRNReAXU_O4uX2S_zMjPdAZ-CThghDCoqFR3-7--Ommy7abCCteJkmEeMLInv9IFcrJzBYByAhKc8ErDv0DdSVKXqLIfBBbo0v7NQPTEF0XXDqBbAYTmWAQuukERhZhzXUIFDSgA_8_Ux8vSCmUgS7EvcnoxRrRgy4yWKIxFSuOyImidqUcV2l5VIenbQvAE1rJrOHePf3jdu-3tNqrCp4PscN1QfjvSEJM0-7VctR2Um5JWJta4XYTM_dEFOFQbD6vJMKG8Doz4O2rN1B_WI3qn7UJtfFrtNOzq-4d8nwEPNGulq6e8OoS6KhuOTOHQ6rsA9Pn_Ub9cRSA3dJzKwjdiRSrsuUDIPf8MHzQaXpKWsph2s3chw3i0EC6f_l-FCmmjM5Jskiz2D_iOjOTrxYinl6s8SBVDmxuKKZWEmVu_NtYWBNEyypzVxMYgqe3-FfRr59xGIGe99sEcVYN6_WdGMJWUNYZe0dClTMxou8PBaT5e7Ya-o4UlRR5JA8oQ8naQYlmWkJpIiqvD9lJwOQ-7cE31ZEay1LIcxEeUGRz42PCzWGRtqOBxdybL0Yz9WBrxjXXyUx3xLNMRGCLympOFbygkLkbDSsXFt7UKwnoMgF3Pw5WswTNsj6RrmdDoLEUrWrP7nz4PVcE49dN1DJ7Q6BZE-GOz4T8n21JVTEUefFNkwDRJyi4kL1x2fxdv8tXUmOU9-GLrZe2y2xnF7QGw03-v7bkRxs4qnvbyh104oy0dtkCcU33oc7wKyat4hD18tNP56JooYgttdg_eG1nfTqQje2TI9qTBgBl9mgD9r5yE6cl7lF3ag-d6AM16Qs6X3UxGpPBzG3P_3FDZFHP5GIfDnEc7bTueZwOKQGWSf2XZ8xcZtQP6fcnzWZhCKiZUf2pRVYMVZvgoDIvsJ4G_7nSQg5o2WAznLI21s2g7s8yldM_lX1-l0ZDb0WmredfryTp03Pf6YjsOQ552dtYJYfwzd1MgdEXD2QyBEG4a_5_qJkMhM0csLheGxDEGgZKMRPdEiraPHfK_UqCijMwdh052VfJQZuVJn9N4zc1n1vzs5vyg9bEP5f3Lofwn2Y-BYbXTmWDc0coGGyiiIi_t0mY1upTKq06d9v_TIHlQtJAKOM5AhXK13tuArK3q90woGcvn2apcoQquA3PsOQsAc7jVYkDlqA0z7U-NcdBra31bWOW76pvTclR6iIfp7oaPFjjHYLonJYjuGGyEsTGTvXcTORvsaV4ojKxCTowtQvb1hzR6DkRIGC6IHmPW6etnZlrOh9ZQ1o7LYmTiQwuXOwwsc7zHIdI8zKUVhMx6l38Xp-CTmELMxs_uEm-7m7xPoX5-k3RyRk-kk9GZBuybJdCp2gErS1f8q0PA-B-fWH1e5KMkP8QGDtlazzeZ4msbiGs4QSObY2JpWd-e67OyxQMpVeF9sTDFTauuPjFclT2kDCJ63F27dvUehLjc46CWNU5GQE-An0-B6J2XgKFhD6Ohauk_3kzWNO_y_-6R8JoO4FxNhZR6a7u5lD0TItcsf2xlLE8-b1UqdBUBIkkfc3padZFY2Ndxp4756TLbEpyQgpXAjgDgfJQOzV_XcYYgzTBzQoGsDXps0FZwWONl1kaHwVYkVtaaYGjJr0Uc4gzcg36ykwaNpXwuMmxyYQrYjvnZEX6T_fvJ7wsl_wR_o5VFOF_7x_OkT4a38dFP4u3-x8tGVfVznT1s0X7-lGh7rA5eVn4myo98q4t0pjEyEWsB-QT7WWmhAWRD82eiI6lQjunJEzz_xZ6aRG2wy7qtrbdJ2iQjgOJZcT8Hq2KS3M8b1I7820Nt0DFA_b4bUsMXZPETIdMWu9E31Fnu0wBc30x2CmYtAfs_fg_eMBkc0eUbMRPCtIv65K2ZwaIhpaW_6smbv4bqFrj1dZrZXRIFLHMae5K71Sl-zIJ3QnsiA9fFZZZwFh-vOrPIqTHKhhyigNQjgUweQPTkDJkhUnBdUJL_HPLqJzOPRq671Cmqpc6BjFkfAJCJJMXmF8ibloQBDSrNKT3lc81Czmx2Fv-GjdxRYoNNKPwcbPZ2kh_rkJRFffq4bPbgJSHVCS9WPpx-F5uJlSd97dOxPSgVOEEl_mD0QQXSA_qyeHXtjGcRVjKd4qx-42BfV6wAFLyeU-JVuZ-c9bXHcb0nZv20knjAmwS-JadeGSs9HPga4oms3457HPf41qcpsnZ9CHNb3HOeFjxe1YrLTP2I1nJdUQyZUmeiKqB8gYh_MKYb__-PABX_yTd1jAugz77G3gHGTb54blgH3Qb5lan5UGPKJPPd1XbqpmLozX7LtDmU1Oq84tqO4N-VdpL4BrBf6NZZidBUZpSHIEx9XpTECqeP8uz7adkBq-hJP1UhR4TMXrsuEZmX0qUYWqlNEVdqje3M48afgR65l20O7qCjp7uxSlnCDgv3I9eCW9WfwgY_AS64piKhA4Z63Jys4pOapodDbEfFoLTE7LX1Na6Ps05IdvCFtpt92s6tURotaXnU7pTXIQDsNwfOJCHsP24cGPQVoiRgEQMqEKj_TYsfhmYkMVUwEMcaPyL7fkdMLwJdakrJYhDHVUwvZcSmzYsh6kq-H4fYrtVccRyLFTakaiPD2cNWO5-CQjADWsD1SWwP9apB17EEMACwhEPCmymIZGJgmGjh_2YvESNAWG5u0dTtAB9e9O-apHbihfBeiZ0JJcnfRYAabV3qDMJ7ErpO3w6EEmJfNixK3sTGVVfzpm9wY-C3HiptlZJJU8lzKi8235NsUN8aH3CqW47kBqIylHQZ5VCRr9W225MDNNuEOm5yOKrMkl4CifBIZVQEwoVY9XKo8RfEgX_FT9Gt7uJUzHNeKBdAANrBYBHu_MuyY09qcicGqbzN7OXqp2PwrdSLOCWt0Yvks6BGtg6G179kyXejoTJ_PJqkZ7h9YqCaH0DRSqBWFRVLGedXNzzLfl1yRdK04bal82nYi-IjVSdHku-6__BeGnAkkqcgrEr1LJXb1zLaxNOsd_eLofAlaHlhJh3lppeyEe3emE-LKuWxggdczEEOxvqsDSrCVQASOVIl3p4TT-i9UA0v77WoVjTQrB8eGlAyH4lwHmKMxzYSk13nlyAQpuAV6-6J43ylVRValqmgpst44V-uCPxVQeMmrNRV3u-eT3KOB_a26HpJwdsYnr-OaWEoCw8t1u8_OEH8BRsCQG7wVv3mKO1aF8waq_e4Ae16eSzCyDwQkEDsgBPSNS4QEe60vcAuDICXrOsAGydNNJBqnpNywq4eRJ8jmdUwMd4B-igFMpWwJprgWEw2yvUcICz9pFF5akG6mbavfEly3F8_5Hsn5fQTf8NNTgaIGXH6RY9GWKw7J6MKi3y7ILTZSOjscxbBXZfxyUDK6OfwEb5WaB-zQE3LDC5xKjzcULRTqHVrOmL2ER0BaGdLIrgESqEkGKN5QCl82oLFysDwuXKomck2Zc2uW3nKFsK0Bq6QkeZ7_3umxrQU6cyYGDp8L_LUsBDtbvhai1rWeigmeiurNowWVfuxxn_BrKdiITLOJ2jFPlN6yggLd4cEDz5Zy5OlUPDPUrK4L1LdNNwESihNZoOPsv0404xRfxA5iKPPiaZlk4TslrD2fkUBrW1SjK6BMyTVlxSCKb9Dg5wyOKO8ykq_tcz864boZGJ7fIfn_UJeP7jKGMtIvrlFOUNe2lOrRKZvmMdulJg-0ID4frJybu3Vl2MbYGVYFBHRcMypYIlcuHuHP_KRjHYLd6BEJYeN6sn5RgpfOvCMH97lYjdsSQAFWpJQkahJtvRpsQ1L0mzRjczOCFbE1jv1IrE41kd6fh38ZB9J757hw702Xlod5fkRgJX7NM9TvFLEN8ebuK9nIwDkINSJCuqujvhfWf6ybhe0TLN7urw1xUUbo28hbKinZpdh_gcCu6z963LOUtBfCZPj9i-7nSQZI5xkRoFIs-G8S6JyNlz0QJc_LZqoc92x7TRXNrUvb27k5j2fRGFYjCWiAfWPiYgUlZe7rAj1yU7bVwDLh4eTPgQ3_3VwCiYe2C2fxqGuf_sQEpzxGhn-d3jjQ1zNhKu2ahg_l8UbqYgsDZ4qQosK8QXEjZPDiLbCWeGp90teRowxmvLjAuwLjlgLgteLuR6frz60sN7qp7D24tieiNcDgCvkKrEF2dhmfpBXuExJKQU0VKzy8Dv_n-F4S_Y7tNJKL1MM5duC0574ZbAgxjWEaCd3if-0pPuLmr78XiFbPyxTO84DMOERb9J26mIhdfceLwTu2WT0aWaIhHIfQnUY-kr8z8wjKPbfTRBAmHyM0BmehvQ1g0P26RAUvPx7EFpI-2PVAwo6KSus7NNgkW9tvuMF4b2gMJIvUf2RRAE5c_yYcAAlw92ROk6ryBwUxjykfFHAzMni0cwmNYL6T75JtKb_GEF-1dhETHVLDTD6RvUicjoA-ubWifb_k1QDk8ixgPfq45z2UjlxlP5fZ_nUte4qm1X0W8_X984_zbMpgIfpnvyVeuxFscPtlffyc7FmzBWsvEtgp-ZEkOOr4vDw7esICyxW8qnnnabO8bdYbT-Zwe9GRGhBxLMBnZYQfG_n08XniTkA-XSy6HqxqOLt13JSJ1U4lP6ZppheQKoFO53uihoYXNSN4TGy2plI8zR905Tb7ckNpHgVJAX8MYTuBt2-RdI7upaD3JSG361aH0DesiiNIFYbDwgQ1-QWYv7EpuYomD6wAnXp1gQaat_MWoYnwDtWegFReYftQaWzauSBNNKqiyiKDMs5iXwHnH__M7LNqOl9Tn7es86Q1nPRv4vVmbHgkaPYjvqNIm9Ajv7OXKzFE-nNafXDSPSdXMwKweM8u8TTcyIx7o47xhK_i37H_zs4FoHDMFeD6oovdsbjjp94piTtidG_OtjOBxAj5ALu2kqWWqpwM8rALdzj-DkN0vDVttdcTZG43cuRv5ytjrgJO6GWy63QFd2OrnW1mmk2oJg0QvtJjLc-QJ58qYFOkdvOxltAodX_hrXqVtj0Alro5pzYTsc9tueZAtum5fxGt9EhTYBY5-TXUy5mBWAs_fgBwkxRJOriuNgNFSJSzJQyECrDwWlu9kkKEFLhqGcjUCli9-pcSOMZLXDcLDfcUlDD0asI7RuJK4Slm4csQchDZmwrzj5QcjQ-ZnxDdQ9VpocU-EltNbLxYad2HhLjkdGkEgH88k5ROFcrBOIXESLoT0wJjmh_TV_NeLmPZCAF-VIUgcTJxrVsYziCvLC8_8Dn3j2T_9PBgjPAYCdTvMzVtpRx95u-l-99vh8n9YaIFm2l1aqsLcntgopO1xjj9X0y-QNdxD-eOP7egaQ4GN4wpBvmfexl6tYv8aOz9Gso-NGwpA9HJklrRictfQvwlAGLUxc0WUnXkUoLHE6kJhytBP13YyI_GJBjjJa8ZrW2s4prfWL9MbXugEaygZFa9v2ovFjRoI499UfkNmSfxVJcapT9wX_7mJDy99pswnkEfoBxpdaNnT62wg2DiSTJjNW3gFt0ifoJU8_VHWMUxc8EeYOJoFWFWzGBrjVeGOrUmL7ccH2H_XrL0EwDOscETG1OpMoiFIk5JI3RZKPUZAQgGGnXGM9vkh6C-I-GRSuompi_IaoJyZzQk3QnP0XAi5pOkjmnGHQzg1yHm_0f_5tEQEIzmBt_k2sEo--pdMByLGU7cXVt9Aw6gMhBIzGqDxAvjoM2UJosQZAeUniQdSkSrEKZ2DDzMdikjvuGuI4QdSm3lLySV8DzsvIYeqXrnT4Ut4qGefvZ-4OofJ_d2h-qxRucf1l2D_uha4ekyzXMtq9bd19LroZpmQ8agwAueEUaGoHRY55jTZ4L2VRCsp6vf-eT1HnUWDZ92HpiKxABw8p-gOP8WN5-rYycr7xrCtLuQLZvg8lTDr5EKjgra0DkraDj7LzTaAdSobNG1lYaVd_59DebnuwEfIDtbEkHDAHOR3KJGiDtaqDOOJuBPpGaGy1RbKk23QuMoxBc2Zvpy0QXhyrTgao2ce1kvw9lYtp7k0DU5F6HfDNYhQzGngCXDaf4Ryv9_SplQB0yvlyJPtJJrFz8BZsq9WDVllweXj8r0V8YdBoddgPL1AXlcRIxxLPTyQXOdWi6Ao7ANMhc-49joCwSdfXbthsejD335rSwWXVXj_WhixTRFfodTOWk_rL8FDu_DHpKHN5H8L0R14yeqnSJhqcOHBOZEX3DjOUlA3Q_439a4B-bLoOBYnzNwB7JYAZlAgm3uJPIcHMrSAcZacVNvjEeCCpRtBuElTZk2hWDE5yHYY2fxbHU75TbCL2eQFtNqc8DfWej6s_OKtiaEWGZ3cAdi7t6yRsEKzEG-14jFfyGa35V8DHdYf6c49hwJ6Es_n_cI0wLqaucTFU3ocUt-GRGcE6D0EwWEbum9d17veLai5hCUQ4KX4vCKsJfpokaA2AujMH3DUM4_iPcDqPv-z7EIY5bmp1YWoaTvutqlpOvXB-ip_3NMm4hysNR65gWYrpLXIkmznRIJSLcZJUTGnqljNPUw5YJOOPoc0blV_uCYopfEzLR0qhr4rhwvhoAMXc81dPxls6Eu_y7T6xwahufDg8nPz4zNxX7iDADHIY0tT3sc31KffCb2DvCenFmxAL8QEj24LLA57ZmmiXljnxDrbN451TYxzcQhCKCLrF8kkFDLFgeSakbkcRMYUVGxhDl11CiWMNYrWpxgxtf-AKtvjc5P5ybcmNoFTUOeb_0abOdnMHVjId2Lf3UPuXt5TJdfLTcBNORLErEDafKF_v62bWqTAwGu0SMygPBn7BR4qigFHdJusRBLc0Nn0qR4_lBUWaOS4qkA793lgKBmVnWRd8i58_cbdabVBeOCJctzzjB0xBw9GXDuoZgG9_qyq3nJiulkZQuc12vLWQXGlyDarT4Ld3cacOHbBpeocWkPD-_mh3xrVrWElbg_UhA-VFt_unQ-n9Y--_s5zoDBLacLkq-c_f-cyMLJ2eujFTb6DzeU0FEkJuXl-uOsScKsMRh-o5lY9f2Dy7IBQ2JtK37j7MN3l4qKUMT1h850wQO6gdfdjRQUIPQJ_T5E0kLR6Qex9oiW5VaKA--QBtN2O-h12CrLzl4kYuZMUY248NdDPEyUdo0ehtxwYy7W5duNq1JFdEeyUa9MfVcX4TNfGeXxi2QCKenypqnckKLPW3_5B7KleSR127TTXF9RfbGbfkiUIW-nkiGo3hjNkp0YumpuDPgc4A3N6azv0c-ZlTPdF5ALG5y7lFNYYWkL4CoHYwv90mI8zNOoObqqqVvfSeW8477wB9Ao5IRRwxEOqiF36BDBenVFml8PXWMgQfFJuSMsC2LMT1JOKGjhbz7-VZ5P5JF3TLShTCrgzYwrmn8P6DHBQOrTrbRVE0wt9wDjGuQJOA38nSH14TFthK5Tl2y6rOgu11iJTouEN_prNmvMQNgql8NKW5w6sHelYiI77Tvb-9gosaSuBHbCXwCnCCNqBBDSoI7B-pWuzodool3BhKx3JYx-isvsQNZInahmT6dyQ7n6J6IFcciT1xP-Lhc9NAMEzBMB_L20KJt1PvKhLfYWaiVR8ku7m3PrD3Tv6Q1v1ZlH5e3nk4cJhu-g8rcVSpoPX4jrhi7sRJN_a4lyHidkex7LZmI0O-0oiJjGtCDBxXDLtKZOZQgjJs0scd1Xk8kV1OcgSOEcvDlZyQoBAK_7Yv7rLP6smY9a_zN6IW8Mlqou3snaQ7wzZNRMPUwDjELBhE-F1XTbBMRSNS4yZtmmibWdKwerTA0iJSgRPM6cO_iCDyA3yI-Xiv-TcqGhfbJln6Vq37tzT8wgunQtJOwgQsEBRu4Ee70BJhJjIxm2H_alcMSYVih4GBJpiWYPRmEoicU0UEAxn2bpbkgw3q4="
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {},
+          "creation_timestamp": 1764495814.830071
+        },
+        {
+          "invocation_id": "e-b466957a-9e4b-4ca1-bce3-814b4d705bc0",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Looks good"
+              }
+            ],
+            "role": "user"
+          },
+          "intermediate_data": {},
+          "creation_timestamp": 1764495843.59848
+        }
+      ],
+      "session_input": {
+        "app_name": "trip_planner",
+        "user_id": "user",
+        "state": {
+          "destination": "",
+          "ideas_videos": [],
+          "ideas_raw_text": [],
+          "itinerary": {}
+        }
+      },
+      "creation_timestamp": 1764496026.1670668
+    }
+  ],
+  "creation_timestamp": 1764495977.442552
+}

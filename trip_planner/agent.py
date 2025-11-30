@@ -13,8 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Demonstration of Travel AI Conceirge using Agent Development Kit"""
-
 from google.adk.agents import Agent
 
 from trip_planner import prompt

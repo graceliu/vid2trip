@@ -31,8 +31,7 @@ SAMPLE_SCENARIO_PATH = os.getenv(
     "TRIP_PLANNER_SCENARIO", "trip_planner/scenarios/empty_default.json"
 )
 
-
-def memorize_to_list(key: str, values: List[str], tool_context: ToolContext):
+def memorize_to_list(key: str, values: list[str], tool_context: ToolContext):
     """
     Memorize a list of items into a memory list.
 
@@ -45,9 +44,21 @@ def memorize_to_list(key: str, values: List[str], tool_context: ToolContext):
         A status message.
     """
     mem_dict = tool_context.state
+    
+    # 1. Initialize if missing
     if key not in mem_dict:
         mem_dict[key] = []
-    
+        
+    # 2. FIX: specific check if it exists but is the WRONG type (e.g. a string)
+    if not isinstance(mem_dict[key], list):
+        # If it's a string, convert it to a list or reset it
+        current_val = mem_dict[key]
+        if current_val:
+            mem_dict[key] = [current_val] # Wrap existing string in list
+        else:
+            mem_dict[key] = [] # Reset empty string to empty list
+
+    # 3. Append new values
     added_count = 0
     for val in values:
         if val not in mem_dict[key]:
