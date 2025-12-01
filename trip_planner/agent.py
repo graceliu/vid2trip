@@ -24,6 +24,9 @@ from trip_planner.tools.memory import memorize
 from trip_planner.tools.memory import _load_precreated_scenario
 from trip_planner.tools.transcriber import transcribe_all_videos
 
+from trip_planner.logger_config import setup_logging
+setup_logging()
+
 root_agent = Agent(
     model="gemini-2.5-flash",
     name="root_agent",

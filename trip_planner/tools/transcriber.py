@@ -15,7 +15,10 @@
 
 from google.adk.tools import ToolContext
 from trip_planner.tools.youtube import get_youtube_transcript
-# reuse your robust yt-dlp function
+
+import logging
+
+logger = logging.getLogger(__name__)
 
 def transcribe_all_videos(tool_context: ToolContext):
     """
@@ -31,7 +34,7 @@ def transcribe_all_videos(tool_context: ToolContext):
     if not video_urls:
         return "No videos found to transcribe."
         
-    print(f"\n[Tool] Starting batch transcription for {len(video_urls)} videos...")
+    logger.debug(f"[Tool] Starting batch transcription for {len(video_urls)} videos...")
     
     transcribed_count = 0
     errors = []

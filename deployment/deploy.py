@@ -27,6 +27,9 @@ from google.adk.sessions import VertexAiSessionService
 import vertexai
 from vertexai import agent_engines
 from vertexai.preview.reasoning_engines import AdkApp
+from google.adk.plugins.logging_plugin import (
+    LoggingPlugin,
+) 
 
 FLAGS = flags.FLAGS
 flags.DEFINE_string("project_id", None, "GCP project ID.")
@@ -47,7 +50,8 @@ def create(env_vars: dict[str, str]) -> None:
         agent=root_agent,
         enable_tracing=True,
         env_vars=env_vars,
-    )
+        plugins=[LoggingPlugin()]
+        )
 
     remote_agent = agent_engines.create(  
         app,
@@ -67,6 +71,7 @@ def create(env_vars: dict[str, str]) -> None:
         extra_packages=[
             "./trip_planner",  # The main package
         ],
+        env_vars=env_vars
     )
     print(f"Created remote agent: {remote_agent.resource_name}")
 
@@ -101,7 +106,9 @@ def send_message(session_service: VertexAiSessionService, resource_id: str, mess
 def main(argv: list[str]) -> None:
 
     load_dotenv(".env", override=True)
-    env_vars = {}
+    env_vars = {"LOG_LEVEL": os.getenv("LOG_LEVEL", "INFO")}
+
+    print(f"env_vars: {env_vars}")
 
     project_id = (
         FLAGS.project_id if FLAGS.project_id else os.getenv("GOOGLE_CLOUD_PROJECT")
@@ -112,6 +119,8 @@ def main(argv: list[str]) -> None:
     print(f"PROJECT: {project_id}")
     print(f"LOCATION: {location}")
     print(f"BUCKET: {bucket}")
+
+    
 
     if not project_id:
         print("Missing required environment variable: GOOGLE_CLOUD_PROJECT")
@@ -126,7 +135,7 @@ def main(argv: list[str]) -> None:
     vertexai.init(
         project=project_id,
         location=location,
-        staging_bucket=f"gs://{bucket}",
+        staging_bucket=f"gs://{bucket}"
     )
 
     if FLAGS.create:

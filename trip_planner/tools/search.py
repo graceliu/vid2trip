@@ -17,6 +17,9 @@
 
 from duckduckgo_search import DDGS
 from google.adk.tools import ToolContext
+import logging
+
+logger = logging.getLogger(__name__)
 
 def search_videos(query: str, tool_context: ToolContext):
     """
@@ -30,7 +33,8 @@ def search_videos(query: str, tool_context: ToolContext):
     # Clean the query if the agent added "site:youtube.com"
     clean_query = query.replace("site:youtube.com", "").strip()
     
-    print(f"\n🔎 Searching for videos: {clean_query}...")
+    logger.debug(f"[Tool] Searching for videos: {clean_query}...")
+    
     
     try:
         # 1. Use DuckDuckGo Video Search

@@ -24,9 +24,7 @@ build_itinerary_agent = Agent(
     model="gemini-2.5-flash",
     name="build_itinerary_agent", # Corrected name
     description="Builds an itinerary by discussing with the user, then saves it.",
-    instruction=prompt.BUILD_ITINERARY_INSTR, # Corrected variable name
-    # DO NOT use output_schema here. We want the agent to chat first.
-    # The Schema is enforced via the 'save_itinerary' tool definition.
+    instruction=prompt.BUILD_ITINERARY_INSTR, 
     tools=[memorize, save_itinerary], 
 )
 

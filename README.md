@@ -46,7 +46,7 @@ Acts as the state machine. It manages the global context (`destination`, `videos
 * **Logic:** The prompt engineering for this agent was critical. We used a "Chain of Thought" approach where the agent first summarizes the transcripts in its internal monologue before drafting the schedule. Furthermore, we explicitly restricted the agent from writing Python wrappers in its final output, forcing it to strictly adhere to the Pydantic schema required by the `save_itinerary` tool.
 
 ### Technical Features & Stack
-* **Framework:** Google Agent Development Kit (ADK) for state management and routing.
+* **Multi-agent System:** Using Google Agent Development Kit (ADK) for state management and routing.
 * **Model:** Gemini 2.5 Flash for high-speed, low-latency reasoning.
 * **State Management:**
     * **Session-Scoped Memory:** Utilized `tool_context.state` to pass complex objects (video lists, full itinerary JSON) between agents.
@@ -54,9 +54,13 @@ Acts as the state machine. It manages the global context (`destination`, `videos
 * **Tooling Strategy:**
     * **Robustness:** Implemented fallback logic for YouTube scraping (handling 429 errors and soft blocks).
     * **Type Safety:** Tools utilize Pydantic models to enforce strict schema compliance, preventing the LLM from generating malformed JSON.
-* **Automated Evaluation & Testing:** Implemented a robust regression testing suite using `pytest` and the ADK's `AgentEvaluator`. We defined "Golden Path" scenarios with custom semantic thresholds (via `test_config.json`) to ensure the agent reliably produces valid JSON itineraries without regression.
+* ** Observability ** Logging with configurable log level and tracing using Google Cloud tracing
+<img src="vid2trip-logging.png" alt="Vid2Trip Logging" width="800"/>
+<img src="vid2trip-cloud-tracing.png" alt="Vid2Trip Cloud Tracing" width="800"/>
+* **Agent Evaluation & Testing:** Implemented a robust regression testing suite using `pytest` and the ADK's `AgentEvaluator`. We defined "Golden Path" scenarios with custom semantic thresholds (via `test_config.json`) to ensure the agent reliably produces valid JSON itineraries without regression.
 <img src="vid2trip-pytest-evaluation.png" alt="Vid2Trip Pytest Evaluation" width="800"/>
 * **Deployment:** Fully deployed via `deploy.py` using a `uv` managed environment for reproducible builds.
+<img src="vid2trip-deployment.png" alt="Vid2Trip Deployment" width="800"/>
 
 ---
 
@@ -137,6 +141,9 @@ Building Vid2Trip required overcoming several challenges:
     # Sample Scenario Path - Default is the empty state
     TRIP_PLANNER_SCENARIO=trip_planner/scenarios/empty_default.json
 
+    # log level
+    LOG_LEVEL=INFO
+
 4. Authenticate your GCloud account.
     ```bash
     gcloud auth application-default login
@@ -179,7 +186,7 @@ pytest eval --disable-warnings
 
 ---
 
-## 9. Deploying the Agent
+## 9. Deploying the Agent, Logging, and Cloud Trace
 
 To deploy the agent to Vertex AI Agent Engine, run the following commands:
 
@@ -204,6 +211,16 @@ To delete the agent, run the following command (using the resource ID returned p
 ```bash
 uv run python deployment/deploy.py --delete --resource_id=<RESOURCE_ID>
 ```         
+
+To view logs, go to:
+
+https://console.cloud.google.com/logs/query?project=<GOOGLE_CLOUD_PROJECT>
+
+To view cloud trace, go to:
+
+https://console.cloud.google.com/traces/explorer?project=<GOOGLE_CLOUD_PROJECT>
+
+
 ---
 
 ## 10. Acknowledgements

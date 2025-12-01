@@ -21,6 +21,9 @@ import logging
 import yt_dlp
 import uuid
 from google.adk.tools import ToolContext
+import logging
+
+logger = logging.getLogger(__name__)
 
 def get_youtube_transcript(video_url: str, tool_context: ToolContext = None):
     """
@@ -44,7 +47,7 @@ def get_youtube_transcript(video_url: str, tool_context: ToolContext = None):
 
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-            print(f"  ... Fetching subs for {video_url} ...")
+            logger.debug(f"[Tool]  ... Fetching subs for {video_url} ...")
             ydl.download([video_url])
 
         # yt-dlp saves files like 'temp_subs_<id>.en.vtt'

@@ -16,6 +16,9 @@
 from typing import Any, Dict
 from google.adk.tools import ToolContext
 from trip_planner.shared_libraries.types import Itinerary
+import logging
+
+logger = logging.getLogger(__name__)
 
 def save_itinerary(itinerary: Dict[str, Any], tool_context: ToolContext):
     """
@@ -45,7 +48,7 @@ def save_itinerary(itinerary: Dict[str, Any], tool_context: ToolContext):
                    }
         tool_context: The ADK tool context.
     """
-    print(f"\n[Tool] Validating itinerary...")
+    logger.debug(f"[Tool] Validating itinerary...")
 
     try:
         # Validate that the LLM actually followed the instructions above
@@ -56,6 +59,6 @@ def save_itinerary(itinerary: Dict[str, Any], tool_context: ToolContext):
         return {"status": f"Error: You missed required fields. Please ensure every event has 'location', 'description', 'start_time', 'end_time', and 'address'. Details: {str(e)}"}
     
     tool_context.state['itinerary'] = itinerary_dict
-    print(f"✅ Itinerary saved for {itinerary_dict.get('destination', 'Unknown')}")
+    logger.debug(f"[Tool] Itinerary saved for {itinerary_dict.get('destination', 'Unknown')}")
     
     return {"status": "Itinerary saved successfully. Return control to root."}
