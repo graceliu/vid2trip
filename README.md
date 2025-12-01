@@ -100,6 +100,7 @@ Building Vid2Trip required overcoming several challenges:
 │   └── sub_agents/
 │       ├── gather_videos_agent/
 │       └── build_itinerary_agent/
+└── eval/
 └── deployment/
 ```
 
