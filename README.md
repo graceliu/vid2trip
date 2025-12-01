@@ -43,7 +43,7 @@ Acts as the state machine. It manages the global context (`destination`, `videos
 
 **4. `build_itinerary_agent` (The Planner)**
 * **Role:** Synthesizes raw text into a schedule.
-* **Logic:** The prompt engineering for this agent was critical. We used a "Chain of Thought" approach where the agent first summarizes the transcripts in its internal monologue before drafting the schedule. Furthermore, we explicitly restricted the agent from writing Python wrappers in its final output, forcing it to strictly adhere to the Pydantic schema required by the `save_itinerary` tool.
+* **Logic:** The prompt engineering for this agent was critical. We used a "Chain of Thought" approach where the agent first reviews the transcripts exhaustively in its internal monologue before drafting the schedule. Furthermore, we explicitly restricted the agent from writing Python wrappers in its final output, forcing it to strictly adhere to the Pydantic schema required by the `save_itinerary` tool.
 
 ### Technical Features & Stack
 * **Multi-agent System:** Using Google Agent Development Kit (ADK) for state management and routing.
