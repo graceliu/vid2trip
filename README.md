@@ -54,7 +54,7 @@ Acts as the state machine. It manages the global context (`destination`, `videos
 * **Tooling Strategy:**
     * **Robustness:** Implemented fallback logic for YouTube scraping (handling 429 errors and soft blocks).
     * **Type Safety:** Tools utilize Pydantic models to enforce strict schema compliance, preventing the LLM from generating malformed JSON.
-* ** Observability ** Logging with configurable log level and tracing using Google Cloud tracing
+* **Observability:** Logging with configurable log level and tracing using Google Cloud tracing
 <img src="vid2trip-logging.png" alt="Vid2Trip Logging" width="800"/>
 <img src="vid2trip-cloud-trace.png" alt="Vid2Trip Cloud Trace" width="800"/>
 * **Agent Evaluation & Testing:** Implemented a robust regression testing suite using `pytest` and the ADK's `AgentEvaluator`. We defined "Golden Path" scenarios with custom semantic thresholds (via `test_config.json`) to ensure the agent reliably produces valid JSON itineraries without regression.
