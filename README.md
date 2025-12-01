@@ -222,6 +222,7 @@ To view cloud trace, go to:
 
 https://console.cloud.google.com/traces/explorer?project=<GOOGLE_CLOUD_PROJECT>
 
+Note: The project works fully locally.  The deployed instance is able to converse with the user, but has issues with transcribing videos.  This is a work in progress.
 
 ---
 
