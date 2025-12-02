@@ -20,7 +20,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-def transcribe_all_videos(tool_context: ToolContext):
+def transcribe_videos(tool_context: ToolContext):
     """
     Batch processes all videos currently in the 'ideas_videos' list.
     Extracts transcripts and saves them to 'ideas_raw_text'.

@@ -68,15 +68,15 @@ Acts as the state machine. It manages the global context (`destination`, `videos
 
 Building Vid2Trip required overcoming several challenges:
 
-1.  **Hallucinations in Search:** Initially, the generic Google Search tool returned blog posts instead of videos, or hallucinated broken YouTube URLs. We engineered a specific `Youtube_tool` that validates link structure and ensures only playable content is passed to the pipeline.
-2.  **Platform Blocking:** The transcription agent initially faced soft-blocks from YouTube (`list_transcripts` failures). We refactored the tool to use `yt-dlp` with temporary file handling to robustly extract auto-generated captions without triggering anti-bot measures.
+1.  **Hallucinations in Search:** Initially, the generic Google Search tool returned blog posts instead of videos, or hallucinated broken YouTube URLs. We engineered a specific `search_videos` tool that validates link structure and ensures only playable content is passed to the pipeline.
+2. **Platform Blocking & Cloud Resilience:** The transcription tool initially faced aggressive IP blocking from YouTube, particularly when deployed to Google Cloud (Vertex AI) where datacenter IPs are flagged. We refactored the tool to use `yt-dlp` with temporary file handling and integrated **residential proxy support** to successfully bypass anti-bot measures in the production environment.
 3.  **Structured Output:** The itinerary builder initially struggled to produce consistent JSON while maintaining a natural conversation. We solved this by implementing a **"Tool-as-Schema"** pattern. We injected the raw JSON schema into the tool's docstring and explicitly instructed the model *not* to generate Python code wrappers, solving the "Malformed Function Call" errors we encountered during testing.
 
 ---
 
 ## 4. Future Work
 
-* **Multimodal Analysis:** Upgrade the `transcribe_agent` to use Gemini 1.5 Pro's native video ingestion to "see" visuals (e.g., reading menu prices or spotting scenic views) that aren't spoken in the audio.
+* **Multimodal Analysis:** Upgrade the `transcribe_videos` tool to use Gemini 1.5 Pro's native video ingestion to "see" visuals (e.g., reading menu prices or spotting scenic views) that aren't spoken in the audio.
 * **Geo-Spatial Routing:** Integrate the Google Maps API to optimize the itinerary order based on actual travel times between the extracted locations.
 * **Calendar Export:** Add a tool to push the finalized JSON directly to the user's Google Calendar.
 
@@ -145,6 +145,7 @@ Building Vid2Trip required overcoming several challenges:
 
     # log level
     LOG_LEVEL=INFO
+    ```
 
 4. Authenticate your GCloud account.
     ```bash
@@ -190,7 +191,16 @@ pytest eval --disable-warnings
 
 ## 9. Deploying the Agent, Logging, and Cloud Trace
 
-To deploy the agent to Vertex AI Agent Engine, run the following commands:
+To deploy the agent to Vertex AI Agent Engine:
+
+- Set the following environment variables in `.env.prod` (copy from `.env.prod.example`)
+
+```
+# youtube proxy url
+YT_PROXY_URL=__YOUR_YT_PROXY_URL__
+```
+
+- Run the following commands:
 
 ```bash
 uv sync --group deployment
@@ -202,27 +212,25 @@ id that looks something like this:
 projects/************/locations/us-central1/reasoningEngines/7737333693403889664
 ```
 
-To quickly test that the agent has successfully deployed,
+- To quickly test that the agent has successfully deployed,
 run the following command for one turn with the agent "Please help me plan a trip to Tokyo":
 ```bash
 uv run python deployment/deploy.py --quicktest --resource_id=<RESOURCE_ID>
 ```
 This will return a stream of JSON payload indicating the deployed agent is functional.
 
-To delete the agent, run the following command (using the resource ID returned previously):
+- To delete the agent, run the following command (using the resource ID returned previously):
 ```bash
 uv run python deployment/deploy.py --delete --resource_id=<RESOURCE_ID>
 ```         
 
-To view logs, go to:
+- To view logs, go to:
 
 https://console.cloud.google.com/logs/query?project=<GOOGLE_CLOUD_PROJECT>
 
-To view cloud trace, go to:
+- To view cloud trace, go to:
 
 https://console.cloud.google.com/traces/explorer?project=<GOOGLE_CLOUD_PROJECT>
-
-Note: The project works fully locally.  The deployed instance is able to converse with the user, but has issues with transcribing videos, due to Youtube blocking cloud IP's.
 
 ---
 

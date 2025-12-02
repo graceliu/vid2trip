@@ -23,6 +23,9 @@ import uuid
 from google.adk.tools import ToolContext
 import logging
 import tempfile
+import os
+
+PROXY_URL = os.environ.get("YT_PROXY_URL")
 
 logger = logging.getLogger(__name__)
 
@@ -52,6 +55,10 @@ def get_youtube_transcript(video_url: str, tool_context: ToolContext = None):
         # CRITICAL: Also move the cache to /tmp so it doesn't try to write to ~
         'paths': {'home': temp_dir},
     }
+
+    if PROXY_URL:
+        ydl_opts['proxy'] = PROXY_URL
+        logger.debug(f"[Tool] Using Proxy for {video_url}...")
 
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:

@@ -106,7 +106,9 @@ def send_message(session_service: VertexAiSessionService, resource_id: str, mess
 def main(argv: list[str]) -> None:
 
     load_dotenv(".env", override=True)
-    env_vars = {"LOG_LEVEL": os.getenv("LOG_LEVEL", "INFO")}
+    load_dotenv(".env.prod", override=True)
+    env_vars = {"LOG_LEVEL": os.getenv("LOG_LEVEL", "INFO"),
+                "YT_PROXY_URL": os.getenv("YT_PROXY_URL", "")}
 
     print(f"env_vars: {env_vars}")
 
