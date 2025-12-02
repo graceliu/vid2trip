@@ -59,7 +59,7 @@ Acts as the state machine. It manages the global context (`destination`, `videos
 <img src="vid2trip-cloud-trace.png" alt="Vid2Trip Cloud Trace" width="800"/>
 * **Agent Evaluation & Testing:** Implemented a robust regression testing suite using `pytest` and the ADK's `AgentEvaluator`. We defined "Golden Path" scenarios with custom semantic thresholds (via `test_config.json`) to ensure the agent reliably produces valid JSON itineraries without regression.
 <img src="vid2trip-pytest-evaluation.png" alt="Vid2Trip Pytest Evaluation" width="800"/>
-* **Deployment:** Fully deployed via `deploy.py` using a `uv` managed environment for reproducible builds.
+* **Deployment:** Fully deployed via `deploy.py` script using a `uv` managed environment for reproducible builds.
 <img src="vid2trip-deployment.png" alt="Vid2Trip Deployment" width="800"/>
 
 ---
@@ -222,7 +222,7 @@ To view cloud trace, go to:
 
 https://console.cloud.google.com/traces/explorer?project=<GOOGLE_CLOUD_PROJECT>
 
-Note: The project works fully locally.  The deployed instance is able to converse with the user, but has issues with transcribing videos.  This is a work in progress.
+Note: The project works fully locally.  The deployed instance is able to converse with the user, but has issues with transcribing videos, due to Youtube blocking cloud IP's.
 
 ---
 

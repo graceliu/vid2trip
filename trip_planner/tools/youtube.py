@@ -22,6 +22,7 @@ import yt_dlp
 import uuid
 from google.adk.tools import ToolContext
 import logging
+import tempfile
 
 logger = logging.getLogger(__name__)
 
@@ -29,10 +30,15 @@ def get_youtube_transcript(video_url: str, tool_context: ToolContext = None):
     """
     Retrieves the transcript from a YouTube video URL using yt-dlp.
     This method is robust against YouTube's bot detection.
+    Saving to /tmp to avoid Read-Only filesystem errors in Cloud.
     """
-    # Create a unique temporary filename to avoid collisions
+    # Use the system temp directory (usually /tmp in Linux/Cloud)
+    temp_dir = tempfile.gettempdir()
     temp_id = str(uuid.uuid4())
-    temp_filename = f"temp_subs_{temp_id}"
+    
+    # Define the full path pattern for the output
+    # yt-dlp appends .en.vtt automatically, so we just give the prefix
+    output_template = os.path.join(temp_dir, f"temp_subs_{temp_id}")
     
     # Configure yt-dlp to only download subtitles, not the video
     ydl_opts = {
@@ -40,9 +46,11 @@ def get_youtube_transcript(video_url: str, tool_context: ToolContext = None):
         'writeautomaticsub': True,  # Download auto-generated subs
         'writesubtitles': True,     # Download manual subs if available
         'sub_langs': ['en', 'en-orig', '.*'],   # Prefer English, but accept others
-        'outtmpl': temp_filename,   # Output filename template
+        'outtmpl': output_template,  # <--- Write to /tmp
         'quiet': True,              # Less noise in console
         'no_warnings': True,
+        # CRITICAL: Also move the cache to /tmp so it doesn't try to write to ~
+        'paths': {'home': temp_dir},
     }
 
     try:
@@ -50,9 +58,10 @@ def get_youtube_transcript(video_url: str, tool_context: ToolContext = None):
             logger.debug(f"[Tool]  ... Fetching subs for {video_url} ...")
             ydl.download([video_url])
 
-        # yt-dlp saves files like 'temp_subs_<id>.en.vtt'
-        # We find the file that was created
-        list_of_files = glob.glob(f"{temp_filename}*.vtt")
+        # yt-dlp saves files like '/tmp/temp_subs_<id>.en.vtt'
+        # We search specifically in the temp_dir
+        search_pattern = os.path.join(temp_dir, f"temp_subs_{temp_id}*.vtt")
+        list_of_files = glob.glob(search_pattern)
         
         if not list_of_files:
             return f"Skipped: No subtitles found for {video_url}"
@@ -72,12 +81,7 @@ def get_youtube_transcript(video_url: str, tool_context: ToolContext = None):
         return transcript_text
 
     except Exception as e:
-        # Clean up if crash happens
-        for f in glob.glob(f"{temp_filename}*"):
-            try:
-                os.remove(f)
-            except: 
-                pass
+        # Debugging: Return the actual error so we can see it in the Agent response
         return f"Error retrieving transcript: {str(e)}"
 
 def _parse_vtt(file_path):

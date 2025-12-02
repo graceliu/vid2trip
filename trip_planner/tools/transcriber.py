@@ -55,6 +55,11 @@ def transcribe_all_videos(tool_context: ToolContext):
         # 2. Save to memory directly
         state["ideas_raw_text"].append(text)
         transcribed_count += 1
-        print(f"  - Transcribed: {url}")
+        logger.debug(f"[Tool]  - Transcribed: {url}")
+    
+    # Return a more detailed summary
+    if errors:
+        error_summary = "\n".join(errors)
+        return f"Partial Success: Transcribed {transcribed_count} videos. Failures:\n{error_summary}"
 
     return f"Success: Transcribed {transcribed_count} videos. {len(errors)} failed."
