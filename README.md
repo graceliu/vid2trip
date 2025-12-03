@@ -24,7 +24,7 @@ Vid2Trip is not just a transcriber; it is a **reasoning engine**. It employs a t
 ### Architecture
 The system utilizes a **Hierarchical Multi-Agent Architecture** orchestrated by a Root Agent. This ensures separation of concerns, where each agent utilizes specific tools and context to perform a distinct role.
 
-<img src="vid2trip-architecture.png" alt="Vid2Trip Architecture" width="800"/>
+<img src="https://github.com/graceliu/vid2trip/blob/main/vid2trip-architecture.png?raw=true" alt="Vid2Trip Architecture" width="800"/>
 
 **The Agentic Workflow:**
 
@@ -55,12 +55,12 @@ Acts as the state machine. It manages the global context (`destination`, `videos
     * **Robustness:** Implemented fallback logic for YouTube scraping (handling 429 errors and soft blocks).
     * **Type Safety:** Tools utilize Pydantic models to enforce strict schema compliance, preventing the LLM from generating malformed JSON.
 * **Observability:** Logging with configurable log level and tracing using Google Cloud tracing
-<img src="vid2trip-logging.png" alt="Vid2Trip Logging" width="800"/>
-<img src="vid2trip-cloud-trace.png" alt="Vid2Trip Cloud Trace" width="800"/>
+<img src="https://github.com/graceliu/vid2trip/blob/main/vid2trip-logging.png?raw=true" alt="Vid2Trip Logging" width="800"/>
+<img src="![vid2trip-cloud-trace.png](https://github.com/graceliu/vid2trip/blob/main/vid2trip-cloud-trace.png?raw=true)" alt="Vid2Trip Cloud Trace" width="800"/>
 * **Agent Evaluation & Testing:** Implemented a robust regression testing suite using `pytest` and the ADK's `AgentEvaluator`. We defined "Golden Path" scenarios with custom semantic thresholds (via `test_config.json`) to ensure the agent reliably produces valid JSON itineraries without regression.
-<img src="vid2trip-pytest-evaluation.png" alt="Vid2Trip Pytest Evaluation" width="800"/>
+<img src="https://github.com/graceliu/vid2trip/blob/main/vid2trip-pytest-evaluation.png?raw=true" alt="Vid2Trip Pytest Evaluation" width="800"/>
 * **Deployment:** Fully deployed via `deploy.py` script using a `uv` managed environment for reproducible builds.
-<img src="vid2trip-deployment.png" alt="Vid2Trip Deployment" width="800"/>
+<img src="https://github.com/graceliu/vid2trip/blob/main/vid2trip-deployment.png?raw=true" alt="Vid2Trip Deployment" width="800"/>
 
 ---
 
