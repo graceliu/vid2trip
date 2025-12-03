@@ -128,7 +128,7 @@ Building Vid2Trip required overcoming several challenges:
 
 3.  Set up environment variables:
 
-    - Set the following environment variables in `.env` (copy from `.env.example`)
+    - Set the following environment variables in `.env` (copy from `env.example`)
     ```
     # Use the Vertex AI Engine
     GOOGLE_GENAI_USE_VERTEXAI=1
@@ -193,7 +193,7 @@ pytest eval --disable-warnings
 
 To deploy the agent to Vertex AI Agent Engine:
 
-- Set the following environment variables in `.env.prod` (copy from `.env.prod.example`)
+- Set the following environment variables in `.env.prod` (copy from `env.prod.example`)
 
 ```
 # youtube proxy url
