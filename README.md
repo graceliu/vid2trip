@@ -51,22 +51,29 @@ Acts as the state machine. It manages the global context (`destination`, `videos
 
 ### **Technical Features & Stack**
 
+### Technical Features & Stack
+
 * **Multi-agent System:** Using Google Agent Development Kit (ADK) for state management and routing in a hierarchical, sequential architecture.
 * **Model:** Gemini 2.5 Flash for high-speed, low-latency reasoning.
 * **Context Engineering (Pipeline Pattern):** Implemented a "Map-Reduce" style ingestion pipeline. Instead of flooding the Planner Agent with raw, noisy transcripts, the system uses an intermediate LLM call to "compact" video data into structured Points of Interest (POIs) before planning begins.
-* **State Management:**
-    * **Session-Scoped Memory:** Utilized `tool_context.state` to pass complex objects (video lists, full itinerary JSON) between agents.
-    * **Persistence:** Custom `memorize` tools allow agents to "commit" facts to long-term memory.
+* **State Management & Persistence:**
+    * **Session Hydration:** Implemented a custom `StateManager` hooked into the agent's lifecycle callbacks (`before_agent` / `after_agent`). This snapshots the user's state after every turn and automatically "hydrates" (restores) it when a new session starts, enabling seamless "Abandon & Resume" workflows.
+    * **Memory Service:** Integrated the ADK's `InMemoryMemoryService` to index full conversation history. This allows the Root Agent to use the `load_memory` tool to recall specific user preferences or details from past sessions that are no longer in the active context window.
 * **Tooling Strategy:**
     * **Robustness:** Implemented "Circuit Breaker" logic for YouTube scraping. If the cloud IP is rate-limited (429 error), the system gracefully degrades to cached/mock data to ensure the demo never crashes.
     * **Type Safety:** Tools utilize Pydantic models to enforce strict schema compliance.
 * **Observability:** Logging with configurable log level and tracing using Google Cloud tracing.
-<img src="https://github.com/graceliu/vid2trip/blob/main/vid2trip-logging.png?raw=true" alt="Vid2Trip Logging" width="800"/>
-<img src="https://github.com/graceliu/vid2trip/blob/main/vid2trip-cloud-trace.png?raw=true" alt="Vid2Trip Cloud Trace" width="800"/>
-* **Agent Evaluation & Testing:** Implemented a robust regression testing suite using `pytest` and the ADK's `AgentEvaluator`. We defined "Happy Path" scenarios with custom semantic thresholds (via `test_config.json`) to ensure the agent reliably produces valid JSON itineraries without regression.
-<img src="https://github.com/graceliu/vid2trip/blob/main/vid2trip-pytest-evaluation.png?raw=true" alt="Vid2Trip Pytest Evaluation" width="800"/>
+
+![Vid2Trip Logging](https://github.com/graceliu/vid2trip/blob/main/vid2trip-logging.png?raw=true)
+![Vid2Trip Cloud Trace](https://github.com/graceliu/vid2trip/blob/main/vid2trip-cloud-trace.png?raw=true)
+
+* **Agent Evaluation & Testing:** Implemented a robust regression testing suite using `pytest` and the ADK's `AgentEvaluator`. We defined "Golden Path" scenarios with custom semantic thresholds (via `test_config.json`) to ensure the agent reliably produces valid JSON itineraries without regression.
+
+![Vid2Trip Pytest Evaluation](https://github.com/graceliu/vid2trip/blob/main/vid2trip-pytest-evaluation.png?raw=true)
+
 * **Deployment:** Fully deployed via `deploy.py` script using a `uv` managed environment for reproducible builds.
-<img src="https://github.com/graceliu/vid2trip/blob/main/vid2trip-deployment.png?raw=true" alt="Vid2Trip Deployment" width="800"/>
+
+![Vid2Trip Deployment](https://github.com/graceliu/vid2trip/blob/main/vid2trip-deployment.png?raw=true)
 
 ---
 

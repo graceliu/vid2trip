@@ -14,6 +14,7 @@
 # limitations under the License.
 
 from google.adk.agents import Agent
+from google.adk.tools import load_memory
 
 from trip_planner import prompt
 
@@ -21,9 +22,10 @@ from trip_planner.sub_agents.gather_videos.agent import gather_videos_agent
 from trip_planner.sub_agents.build_itinerary.agent import build_itinerary_agent
 
 from trip_planner.tools.memory import memorize
-from trip_planner.tools.memory import _load_precreated_scenario
 from trip_planner.tools.transcriber import transcribe_videos
 from trip_planner.tools.compactor import compact_travel_ideas
+from trip_planner.callbacks import root_agent_pre_hook
+from trip_planner.callbacks import persist_session_state
 
 
 from trip_planner.logger_config import setup_logging
@@ -38,6 +40,7 @@ root_agent = Agent(
         gather_videos_agent,
         build_itinerary_agent
     ],
-    tools=[memorize, transcribe_videos, compact_travel_ideas],
-    before_agent_callback=_load_precreated_scenario
+    tools=[memorize, transcribe_videos, compact_travel_ideas, load_memory],
+    before_agent_callback=root_agent_pre_hook,
+    after_agent_callback=persist_session_state,
 )

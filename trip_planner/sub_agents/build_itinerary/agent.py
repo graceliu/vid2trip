@@ -21,7 +21,7 @@ from trip_planner.tools.itinerary import save_itinerary # Import new tool
 from trip_planner.tools.memory import memorize
 
 build_itinerary_agent = Agent(
-    model="gemini-2.5-flash",
+    model="gemini-2.5-pro",
     name="build_itinerary_agent", # Corrected name
     description="Builds an itinerary by discussing with the user, then saves it.",
     instruction=prompt.BUILD_ITINERARY_INSTR, 
