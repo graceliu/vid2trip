@@ -49,8 +49,6 @@ Acts as the state machine. It manages the global context (`destination`, `videos
 
 ---
 
-### **Technical Features & Stack**
-
 ### Technical Features & Stack
 
 * **Multi-agent System:** Using Google Agent Development Kit (ADK) for state management and routing in a hierarchical, sequential architecture.
