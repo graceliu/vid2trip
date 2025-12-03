@@ -96,7 +96,7 @@ Building Vid2Trip required overcoming several challenges:
 ## 5. Demo
 
 
-[Demo Youtube Video](https://youtube.com/watch?v=65DF82ucEng&feature=youtu.be)
+[Demo Youtube Video](https://youtu.be/7MyRa431NAA)
 
 ---
 
