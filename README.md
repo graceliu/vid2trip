@@ -243,6 +243,8 @@ https://console.cloud.google.com/logs/query?project=<GOOGLE_CLOUD_PROJECT>
 
 https://console.cloud.google.com/traces/explorer?project=<GOOGLE_CLOUD_PROJECT>
 
+Note: The deployed instance can go through the whole agentic workflow, but is blocked from transcribing so we use mock video transcripts when this happens.  It is also not able to persist memory across sessions.  Fixing these issues is a work in progress.
+
 ---
 
 ## 10. Acknowledgements
