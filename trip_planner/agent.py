@@ -23,6 +23,8 @@ from trip_planner.sub_agents.build_itinerary.agent import build_itinerary_agent
 from trip_planner.tools.memory import memorize
 from trip_planner.tools.memory import _load_precreated_scenario
 from trip_planner.tools.transcriber import transcribe_videos
+from trip_planner.tools.compactor import compact_travel_ideas
+
 
 from trip_planner.logger_config import setup_logging
 setup_logging()
@@ -36,6 +38,6 @@ root_agent = Agent(
         gather_videos_agent,
         build_itinerary_agent
     ],
-    tools=[memorize, transcribe_videos],
+    tools=[memorize, transcribe_videos, compact_travel_ideas],
     before_agent_callback=_load_precreated_scenario
 )

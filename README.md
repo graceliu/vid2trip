@@ -26,38 +26,44 @@ The system utilizes a **Hierarchical Multi-Agent Architecture** orchestrated by 
 
 <img src="https://github.com/graceliu/vid2trip/blob/main/vid2trip-architecture.png?raw=true" alt="Vid2Trip Architecture" width="800"/>
 
-**The Agentic Workflow:**
+### **The Agentic Workflow:**
 
 **1. `root_agent` (The Orchestrator)**
-Acts as the state machine. It manages the global context (`destination`, `videos`, `itinerary`) and determines which specialist agent needs to be active based on the current state of the memory. It handles the hand-offs between gathering, processing, and planning.
+Acts as the state machine. It manages the global context (`destination`, `videos`, `itinerary`) and orchestrates a sequential pipeline of tools and agents. It enforces the dependency order: Gather $\rightarrow$ Ingest $\rightarrow$ Refine $\rightarrow$ Plan.
 
 **2. `gather_videos_agent` (The Researcher)**
 * **Role:** Identifies high-quality source material.
-* **Logic:** We implemented a specific "Human-in-the-Loop" design here. Rather than the agent blindly picking videos, it presents a curated list to the user and pauses execution. This required careful state management to ensure the `ideas_videos` list wasn't populated until the user explicitly confirmed their selection, preventing downstream agents from processing irrelevant content.
-* **Tooling:** Uses a custom `video_search_tool` powered by DuckDuckGo to bypass standard SEO clutter and find actual vlogs, cleaning and validating links to prevent hallucinations.
+* **Logic:** We implemented a "Human-in-the-Loop" design. Rather than blindly picking videos, the agent presents a curated list to the user and pauses execution. This prevents downstream agents from processing irrelevant content.
+* **Tooling:** Uses a custom `video_search_tool` powered by `yt-dlp` metadata search to find actual vlogs, cleaning and validating links to prevent hallucinations.
 
-**3. Intelligent Ingestion Layer (The Transcriber)**
-* **Role:** Converts video audio into structured text.
-* **Architectural Decision:** We deliberately implemented this as a **deterministic Tool** rather than a conversational Agent. Since the goal is high-throughput batch processing of video data using `yt-dlp`, a Python-native approach ensures zero-latency execution and prevents LLM "chat loops." This design choice optimizes for reliability, ensuring the downstream **Planner Agent** receives clean, complete data every time.
-* **Future Work:** We plan to introduce a "Curator Agent" at this stage to interactively filter the content before transcription.
+**3. Intelligent Data Pipeline (Extract & Transform)**
+* **Role:** Converts raw video audio into high-signal travel notes.
+* **Architectural Decision:** We implemented a **Sequential Tool Chain** to handle the "noise" inherent in video transcripts.
+    * **Stage 1 (Ingestion):** A deterministic `transcribe_videos` tool uses `yt-dlp` for high-throughput, batch downloading of raw text.
+    * **Stage 2 (Compaction):** A `compact_travel_ideas` tool uses Gemini to "distill" the raw transcripts. It filters out host chatter and sponsor reads, extracting only specific Points of Interest (POIs).
+* **Value:** This ETL (Extract-Transform-Load) pattern ensures the reasoning agent only receives clean, structured data, reducing hallucinations and token usage by ~90%.
 
 **4. `build_itinerary_agent` (The Planner)**
-* **Role:** Synthesizes raw text into a schedule.
-* **Logic:** The prompt engineering for this agent was critical. We used a "Chain of Thought" approach where the agent first reviews the transcripts exhaustively in its internal monologue before drafting the schedule. Furthermore, we explicitly restricted the agent from writing Python wrappers in its final output, forcing it to strictly adhere to the Pydantic schema required by the `save_itinerary` tool.
+* **Role:** Synthesizes refined travel notes into a schedule.
+* **Logic:** The prompt engineering for this agent was critical. It uses the "Compacted" context to draft a schedule. We explicitly restricted the agent from writing Python wrappers in its final output, forcing it to strictly adhere to the Pydantic schema required by the `save_itinerary` tool.
 
-### Technical Features & Stack
-* **Multi-agent System:** Using Google Agent Development Kit (ADK) for state management and routing.
+---
+
+### **Technical Features & Stack**
+
+* **Multi-agent System:** Using Google Agent Development Kit (ADK) for state management and routing in a hierarchical, sequential architecture.
 * **Model:** Gemini 2.5 Flash for high-speed, low-latency reasoning.
+* **Context Engineering (Pipeline Pattern):** Implemented a "Map-Reduce" style ingestion pipeline. Instead of flooding the Planner Agent with raw, noisy transcripts, the system uses an intermediate LLM call to "compact" video data into structured Points of Interest (POIs) before planning begins.
 * **State Management:**
     * **Session-Scoped Memory:** Utilized `tool_context.state` to pass complex objects (video lists, full itinerary JSON) between agents.
-    * **Persistence:** Custom `memorize` and `memorize_to_list` tools allow agents to "commit" facts to long-term memory.
+    * **Persistence:** Custom `memorize` tools allow agents to "commit" facts to long-term memory.
 * **Tooling Strategy:**
-    * **Robustness:** Implemented fallback logic for YouTube scraping (handling 429 errors and soft blocks).
-    * **Type Safety:** Tools utilize Pydantic models to enforce strict schema compliance, preventing the LLM from generating malformed JSON.
-* **Observability:** Logging with configurable log level and tracing using Google Cloud tracing
+    * **Robustness:** Implemented "Circuit Breaker" logic for YouTube scraping. If the cloud IP is rate-limited (429 error), the system gracefully degrades to cached/mock data to ensure the demo never crashes.
+    * **Type Safety:** Tools utilize Pydantic models to enforce strict schema compliance.
+* **Observability:** Logging with configurable log level and tracing using Google Cloud tracing.
 <img src="https://github.com/graceliu/vid2trip/blob/main/vid2trip-logging.png?raw=true" alt="Vid2Trip Logging" width="800"/>
-<img src="![vid2trip-cloud-trace.png](https://github.com/graceliu/vid2trip/blob/main/vid2trip-cloud-trace.png?raw=true)" alt="Vid2Trip Cloud Trace" width="800"/>
-* **Agent Evaluation & Testing:** Implemented a robust regression testing suite using `pytest` and the ADK's `AgentEvaluator`. We defined "Golden Path" scenarios with custom semantic thresholds (via `test_config.json`) to ensure the agent reliably produces valid JSON itineraries without regression.
+<img src="https://github.com/graceliu/vid2trip/blob/main/vid2trip-cloud-trace.png?raw=true" alt="Vid2Trip Cloud Trace" width="800"/>
+* **Agent Evaluation & Testing:** Implemented a robust regression testing suite using `pytest` and the ADK's `AgentEvaluator`. We defined "Happy Path" scenarios with custom semantic thresholds (via `test_config.json`) to ensure the agent reliably produces valid JSON itineraries without regression.
 <img src="https://github.com/graceliu/vid2trip/blob/main/vid2trip-pytest-evaluation.png?raw=true" alt="Vid2Trip Pytest Evaluation" width="800"/>
 * **Deployment:** Fully deployed via `deploy.py` script using a `uv` managed environment for reproducible builds.
 <img src="https://github.com/graceliu/vid2trip/blob/main/vid2trip-deployment.png?raw=true" alt="Vid2Trip Deployment" width="800"/>
