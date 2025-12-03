@@ -44,7 +44,7 @@ Acts as the state machine. It manages the global context (`destination`, `videos
 * **Value:** This ETL (Extract-Transform-Load) pattern ensures the reasoning agent only receives clean, structured data, reducing hallucinations and token usage.
 
 **4. `build_itinerary_agent` (The Planner)**
-* **Role:** Synthesizes refined travel notes into a schedule.
+* **Role:** Synthesizes refined travel notes into a schedule, and updates plan based on user input.
 * **Logic:** The prompt engineering for this agent was critical. It uses the "Compacted" context to draft a schedule. We explicitly restricted the agent from writing Python wrappers in its final output, forcing it to strictly adhere to the Pydantic schema required by the `save_itinerary` tool.
 
 ---
