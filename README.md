@@ -41,7 +41,7 @@ Acts as the state machine. It manages the global context (`destination`, `videos
 * **Architectural Decision:** We implemented a **Sequential Tool Chain** to handle the "noise" inherent in video transcripts.
     * **Stage 1 (Ingestion):** A deterministic `transcribe_videos` tool uses `yt-dlp` for high-throughput, batch downloading of raw text.
     * **Stage 2 (Compaction):** A `compact_travel_ideas` tool uses Gemini to "distill" the raw transcripts. It filters out host chatter and sponsor reads, extracting only specific Points of Interest (POIs).
-* **Value:** This ETL (Extract-Transform-Load) pattern ensures the reasoning agent only receives clean, structured data, reducing hallucinations and token usage by ~90%.
+* **Value:** This ETL (Extract-Transform-Load) pattern ensures the reasoning agent only receives clean, structured data, reducing hallucinations and token usage.
 
 **4. `build_itinerary_agent` (The Planner)**
 * **Role:** Synthesizes refined travel notes into a schedule.
